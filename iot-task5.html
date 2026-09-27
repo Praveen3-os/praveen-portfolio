@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 5: Firebase Hardware Integration | PRAVEEN. A</title>
+  <meta name="description" content="IoT Task 5 — Full cyber-physical convergence: ESP32, 230V AC bulb, DHT11 temperature and humidity sensor, tactile push button override, and bidirectional Firebase sync.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- GLOBAL STICKY NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="protosem.html" class="nav-link">ProtoSem</a></li>
+          <li><a href="iot.html" class="nav-link active">IoT Session</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry">
+        <div class="status-dot green"></div>
+        <span>SYS.TIME <strong id="hud-clock" style="color: #fff;">18:07:22</strong></span>
+        <span style="color: var(--accent-red-bright); margin-left: 6px;">[ONLINE]</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN TASK DETAIL -->
+  <main>
+    <div class="task-detail-container">
+      
+      <div class="task-nav-bar">
+        <a href="iot.html" class="back-link">
+          <span>&larr;</span> Back to IoT Session Hub
+        </a>
+        <div style="display: flex; gap: 12px;">
+          <a href="iot-task4.html" class="btn btn-secondary btn-sm">&larr; Prev Task</a>
+          <span class="iot-badge">TASK 05 / 05</span>
+          <a href="iot.html" class="btn btn-primary btn-sm">Mission Hub &rarr;</a>
+        </div>
+      </div>
+
+      <div class="section-tag">
+        <span>HARDWARE CONVERGENCE &amp; CLOUD TELEMETRY</span>
+      </div>
+      <h1 class="section-title" style="text-align: left; margin-bottom: 12px;">
+        Task 5: Firebase Hardware Integration
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 30px;">
+        Task 5 represents the culmination of the IoT module: a complete cyber-physical system integrating high-voltage AC load switching, environmental atmospheric sensing (DHT11), and a physical hardware tactile push button with debounce logic—all synchronized in real time with <strong>Google Firebase Realtime Database</strong>.
+      </p>
+
+      <!-- Hardware Pinout Table -->
+      <div class="glass-card" style="padding: 24px; margin-bottom: 32px;">
+        <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 16px;">
+          Complete Pinout &amp; Component Interfacing
+        </h3>
+        
+        <table class="pinout-table">
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>ESP32 GPIO</th>
+              <th>Direction / Protocol</th>
+              <th>Engineering Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>230V AC Bulb (Relay Module)</td>
+              <td>GPIO 5</td>
+              <td>Digital Output (Active LOW)</td>
+              <td>Optoisolated relay switching mains voltage safely</td>
+            </tr>
+            <tr>
+              <td>DHT11 Sensor (Temp &amp; Humidity)</td>
+              <td>GPIO 4</td>
+              <td>1-Wire Digital Bidirectional</td>
+              <td>Calibrated sampling cycle every 2000ms with pullup</td>
+            </tr>
+            <tr>
+              <td>Tactile Push Button</td>
+              <td>GPIO 18</td>
+              <td>Digital Input (INPUT_PULLUP)</td>
+              <td>Hardware local toggle override with software debounce</td>
+            </tr>
+            <tr>
+              <td>System Status LED</td>
+              <td>GPIO 2</td>
+              <td>Digital Output</td>
+              <td>Pulses when cloud write commits successfully</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Real Hardware Integration Photos -->
+      <div class="glass-card" style="padding: 28px; margin-bottom: 32px;">
+        <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 16px;">
+          Hardware Integration Gallery (Test Bench &amp; Deployment)
+        </h3>
+        
+        <div class="media-gallery-grid">
+          <!-- Photo 1 -->
+          <div class="media-card">
+            <img src="praveen%20task%20photo/task%205.jpeg" alt="Firebase Hardware Setup Overview">
+            <div class="media-caption">
+              📸 Photo 1: Overview of Breadboard, ESP32, and 230V Bulb
+            </div>
+          </div>
+
+          <!-- Photo 2 -->
+          <div class="media-card">
+            <img src="praveen%20task%20photo/task%205...jpeg" alt="DHT11 Sensor and Relay Wiring">
+            <div class="media-caption">
+              📸 Photo 2: Close-up of DHT11 Wiring &amp; Power Rails
+            </div>
+          </div>
+
+          <!-- Photo 3 -->
+          <div class="media-card">
+            <img src="praveen%20task%20photo/task%205...().jpeg" alt="Physical Push Button Hardware Circuit">
+            <div class="media-caption">
+              📸 Photo 3: Tactile Push Button Override Switch
+            </div>
+          </div>
+
+          <!-- Photo 4 -->
+          <div class="media-card">
+            <img src="praveen%20task%20photo/task%205,....jpg.jpeg" alt="ESP32 WiFi Connection Test Bench">
+            <div class="media-caption">
+              📸 Photo 4: Real-Time Firebase Packet Transmission
+            </div>
+          </div>
+
+          <!-- Photo 5 -->
+          <div class="media-card">
+            <img src="praveen%20task%20photo/task%205........jpg.jpeg" alt="Relay Triggering High Voltage AC Lamp">
+            <div class="media-caption">
+              📸 Photo 5: AC Bulb Successfully Illuminated by Cloud Sync
+            </div>
+          </div>
+
+          <!-- Photo 6 -->
+          <div class="media-card">
+            <img src="praveen%20task%20photo/task5.....jpg.jpeg" alt="Final Hardware Enclosure Test">
+            <div class="media-caption">
+              📸 Photo 6: Final Integrated Hardware Deployment
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arduino C++ Source Code -->
+      <div class="glass-card" style="padding: 28px;">
+        <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 8px;">
+          Arduino C++ Source Code (Firebase ESP32 Hardware Client)
+        </h3>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 16px;">
+          Production firmware utilizing <code>FirebaseESP32.h</code> and <code>DHT.h</code>. Implements stream listeners for real-time bulb toggles while publishing non-blocking environmental telemetry.
+        </p>
+
+        <div class="code-block-wrap">
+          <div class="code-header">
+            <span>ESP32_Firebase_Full_Hardware.ino</span>
+            <button class="copy-btn">Copy Code</button>
+          </div>
+          <pre><code>/*
+ * =====================================================================
+ * Task 5: Firebase Hardware Integration (Bulb, DHT11, Push Button, ESP32)
+ * Developer: PRAVEEN. A
+ * Board: ESP32 DevKit V1
+ * Cloud: Google Firebase Realtime Database
+ * =====================================================================
+ */
+
+#include &lt;WiFi.h&gt;
+#include &lt;FirebaseESP32.h&gt;
+#include "DHT.h"
+
+// ---------- WiFi & Firebase Credentials ----------
+#define WIFI_SSID           "protosem"
+#define WIFI_PASSWORD       "Proto#123"
+#define FIREBASE_HOST       "praveen-iot-dashboard-default-rtdb.firebaseio.com"
+#define FIREBASE_AUTH       "YourFirebaseAuthTokenSecret"
+
+// ---------- Pin Definitions ----------
+#define RELAY_PIN           5     // 230V AC Bulb Relay
+#define DHT_PIN             4     // DHT11 Sensor Data
+#define BUTTON_PIN          18    // Manual Push Button
+#define STATUS_LED          2     // Onboard Heartbeat LED
+
+#define DHTTYPE             DHT11
+
+DHT dht(DHT_PIN, DHTTYPE);
+FirebaseData fbdo;
+FirebaseAuth auth;
+FirebaseConfig config;
+
+// State Tracking Variables
+bool currentBulbState = false;
+int lastButtonState = HIGH;
+unsigned long lastDebounceTime = 0;
+const unsigned long debounceDelay = 50;
+unsigned long lastTelemetryTime = 0;
+const unsigned long telemetryInterval = 3000; // 3 seconds
+
+void setup() {
+  Serial.begin(115200);
+  delay(100);
+
+  // Initialize Pin Modes
+  pinMode(RELAY_PIN, OUTPUT);
+  pinMode(STATUS_LED, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+
+  // Default: Bulb OFF (Active LOW relay -> HIGH = OFF)
+  digitalWrite(RELAY_PIN, HIGH);
+  digitalWrite(STATUS_LED, LOW);
+
+  // Initialize DHT Sensor
+  dht.begin();
+
+  // Connect to WiFi
+  Serial.print("Connecting to WiFi");
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nWiFi Connected! IP: " + WiFi.localIP().toString());
+
+  // Configure Firebase Client
+  config.host = FIREBASE_HOST;
+  config.signer.tokens.legacy_token = FIREBASE_AUTH;
+  Firebase.begin(&config, &auth);
+  Firebase.reconnectWiFi(true);
+
+  Serial.println("Firebase Realtime Hardware Hub Initialized!");
+}
+
+void loop() {
+  // 1. Read Physical Push Button with Software Debouncing
+  int reading = digitalRead(BUTTON_PIN);
+  if (reading != lastButtonState) {
+    lastDebounceTime = millis();
+  }
+
+  if ((millis() - lastDebounceTime) > debounceDelay) {
+    if (reading == LOW && lastButtonState == HIGH) {
+      // Button Pressed! Invert state
+      currentBulbState = !currentBulbState;
+      applyBulbState(currentBulbState);
+
+      // Synchronize manual state change back to Firebase Cloud
+      Firebase.setBool(fbdo, "/devices/bulb/status", currentBulbState);
+      Serial.println("[LOCAL OVERRIDE] Push button pressed -> Bulb: " + String(currentBulbState ? "ON" : "OFF"));
+    }
+  }
+  lastButtonState = reading;
+
+  // 2. Poll Firebase Cloud for Remote Dashboard Changes
+  if (Firebase.getBool(fbdo, "/devices/bulb/status")) {
+    bool cloudState = fbdo.boolData();
+    if (cloudState != currentBulbState) {
+      currentBulbState = cloudState;
+      applyBulbState(currentBulbState);
+      Serial.println("[CLOUD SYNC] Remote Dashboard command -> Bulb: " + String(currentBulbState ? "ON" : "OFF"));
+    }
+  }
+
+  // 3. Periodic Environmental Telemetry Publication (DHT11)
+  if (millis() - lastTelemetryTime > telemetryInterval) {
+    lastTelemetryTime = millis();
+
+    float h = dht.readHumidity();
+    float t = dht.readTemperature();
+
+    if (!isnan(h) && !isnan(t)) {
+      Firebase.setFloat(fbdo, "/telemetry/temperature", t);
+      Firebase.setFloat(fbdo, "/telemetry/humidity", h);
+      Serial.printf("[TELEMETRY PUSH] Temp: %.1f °C | Humidity: %.1f %%\n", t, h);
+
+      // Quick pulse on status LED indicating successful upload
+      digitalWrite(STATUS_LED, HIGH);
+      delay(30);
+      digitalWrite(STATUS_LED, LOW);
+    }
+  }
+}
+
+void applyBulbState(bool state) {
+  // Active LOW relay logic: LOW = Relay ON, HIGH = Relay OFF
+  digitalWrite(RELAY_PIN, state ? LOW : HIGH);
+}
+</code></pre>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-name">PRAVEEN.A</span>
+          <span class="footer-discipline">Mechatronics Engineering</span>
+        </div>
+
+        <nav aria-label="Footer Navigation">
+          <ul class="footer-nav">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="skills.html" class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="protosem.html" class="footer-link">ProtoSem</a></li>
+            <li><a href="iot.html" class="footer-link">IoT Session</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 PRAVEEN.A. All rights reserved.</span>
+        <span>ENGINEER'S COMMAND CENTER // OBSIDIAN &amp; CRIMSON EDITION</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills Dashboard | PRAVEEN. A — Engineering Competencies</title>
+  <meta name="description" content="Interactive skills matrix for Praveen A across Mechanical, Electronics, Industrial Automation, Programming, Robotics, and Emerging AI technologies.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       GLOBAL STICKY NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="nav-about">About</a></li>
+          <li><a href="skills.html" class="nav-link active" id="nav-skills">Skills</a></li>
+          <li><a href="experience.html" class="nav-link" id="nav-experience">Experience</a></li>
+          <li><a href="protosem.html" class="nav-link" id="nav-protosem">ProtoSem</a></li>
+          <li><a href="iot.html" class="nav-link" id="nav-iot">IoT Session</a></li>
+          <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry" id="nav-telemetry">
+        <div class="status-dot green"></div>
+        <span>SYS.TIME <strong id="hud-clock" style="color: #fff;">18:07:22</strong></span>
+        <span style="color: var(--accent-red-bright); margin-left: 6px;">[ONLINE]</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       SKILLS DASHBOARD
+       ========================================================================== -->
+  <main>
+    <section style="padding: 60px 0 80px;">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">
+            <span>TECHNICAL CAPABILITIES</span>
+          </div>
+          <h1 class="section-title">Skills Dashboard</h1>
+          <p class="section-description">
+            A realistic appraisal of my practical capabilities calibrated across our four-tier proficiency standard:
+            <br>
+            <strong style="color: #fff; font-family: var(--font-mono); font-size: 0.95rem;">
+              Learner &rarr; Developing &rarr; Practical &rarr; Advanced
+            </strong>
+          </p>
+        </div>
+
+        <!-- Filter Navigation -->
+        <div class="skills-filter-nav">
+          <button class="filter-btn active" data-filter="all">All Domains</button>
+          <button class="filter-btn" data-filter="mechanical">Mechanical</button>
+          <button class="filter-btn" data-filter="electronics">Electronics</button>
+          <button class="filter-btn" data-filter="automation">Automation</button>
+          <button class="filter-btn" data-filter="programming">Programming</button>
+          <button class="filter-btn" data-filter="robotics">Robotics</button>
+          <button class="filter-btn" data-filter="emerging">Emerging Tech</button>
+        </div>
+
+        <!-- Grid of Skill Categories -->
+        <div class="skills-category-grid">
+          
+          <!-- 1. MECHANICAL -->
+          <div class="skill-category-card" data-category="mechanical">
+            <div class="category-header">
+              <h2 class="category-title">
+                <span class="category-icon">⚙️</span>
+                <span>Mechanical</span>
+              </h2>
+              <span class="status-dot"></span>
+            </div>
+            
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Mechanical Design</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">CAD Modeling &amp; Drafting</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 78%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Manufacturing Processes</span>
+                  <span class="proficiency-pill developing">Developing</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 55%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Machine Elements &amp; Kinematics</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 72%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">CNC Machining Operations</span>
+                  <span class="proficiency-pill developing">Developing</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 50%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Fabrication &amp; Prototyping</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 70%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. ELECTRONICS -->
+          <div class="skill-category-card" data-category="electronics">
+            <div class="category-header">
+              <h2 class="category-title">
+                <span class="category-icon">⚡</span>
+                <span>Electronics</span>
+              </h2>
+              <span class="status-dot"></span>
+            </div>
+            
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Sensors (IR, Ultrasonic, DHT11)</span>
+                  <span class="proficiency-pill advanced">Advanced</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Actuators &amp; Solenoids</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 76%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Electronic Circuit Diagnostics</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 74%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Motor Control (DC, Stepper, Servo)</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 78%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Embedded Systems (ESP32, AVR)</span>
+                  <span class="proficiency-pill advanced">Advanced</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. AUTOMATION -->
+          <div class="skill-category-card" data-category="automation">
+            <div class="category-header">
+              <h2 class="category-title">
+                <span class="category-icon">🏭</span>
+                <span>Automation</span>
+              </h2>
+              <span class="status-dot"></span>
+            </div>
+            
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">PLC Programming (Ladder Logic)</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Industrial Automation Systems</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 76%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Pneumatic Cylinders &amp; Valves</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 72%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Control Systems Architecture</span>
+                  <span class="proficiency-pill developing">Developing</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 60%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">HMI (Human-Machine Interface)</span>
+                  <span class="proficiency-pill developing">Developing</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 55%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. PROGRAMMING -->
+          <div class="skill-category-card" data-category="programming">
+            <div class="category-header">
+              <h2 class="category-title">
+                <span class="category-icon">💻</span>
+                <span>Programming</span>
+              </h2>
+              <span class="status-dot"></span>
+            </div>
+            
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Python</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 75%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">C / C++ (Embedded Arduino &amp; ESP32)</span>
+                  <span class="proficiency-pill advanced">Advanced</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">JavaScript &amp; Front-End Logic</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 76%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">HTML5 &amp; Semantic Web Architecture</span>
+                  <span class="proficiency-pill advanced">Advanced</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">CSS3 (Glassmorphism &amp; Layouts)</span>
+                  <span class="proficiency-pill advanced">Advanced</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">AI Prompt Engineering</span>
+                  <span class="proficiency-pill advanced">Advanced</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 85%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. ROBOTICS -->
+          <div class="skill-category-card" data-category="robotics">
+            <div class="category-header">
+              <h2 class="category-title">
+                <span class="category-icon">🤖</span>
+                <span>Robotics</span>
+              </h2>
+              <span class="status-dot"></span>
+            </div>
+            
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Arduino Ecosystem</span>
+                  <span class="proficiency-pill advanced">Advanced</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 90%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Line Following Robots</span>
+                  <span class="proficiency-pill advanced">Advanced</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 92%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Robot Programming</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 74%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Motion Control &amp; Kinematics</span>
+                  <span class="proficiency-pill practical">Practical</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 70%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">ROS (Robot Operating System)</span>
+                  <span class="proficiency-pill learner">Learner</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 35%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. EMERGING TECHNOLOGIES -->
+          <div class="skill-category-card" data-category="emerging">
+            <div class="category-header">
+              <h2 class="category-title">
+                <span class="category-icon">🧠</span>
+                <span>Emerging Technologies</span>
+              </h2>
+              <span class="status-dot"></span>
+            </div>
+            
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Artificial Intelligence Principles</span>
+                  <span class="proficiency-pill developing">Developing</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 60%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Internet of Things (IoT &amp; MQTT)</span>
+                  <span class="proficiency-pill advanced">Advanced</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 88%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Computer Vision</span>
+                  <span class="proficiency-pill learner">Learner</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 35%;"></div></div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Intelligent Automation</span>
+                  <span class="proficiency-pill developing">Developing</span>
+                </div>
+                <div class="skill-bar-bg"><div class="skill-bar-fill" style="width: 62%;"></div></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       GLOBAL FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-name">PRAVEEN.A</span>
+          <span class="footer-discipline">Mechatronics Engineering</span>
+        </div>
+
+        <nav aria-label="Footer Navigation">
+          <ul class="footer-nav">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="skills.html" class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="protosem.html" class="footer-link">ProtoSem</a></li>
+            <li><a href="iot.html" class="footer-link">IoT Session</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 PRAVEEN.A. All rights reserved.</span>
+        <span>ENGINEER'S COMMAND CENTER // OBSIDIAN &amp; CRIMSON EDITION</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

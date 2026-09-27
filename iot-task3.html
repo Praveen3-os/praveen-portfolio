@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 3: Voice Control &amp; Multi-Relays | PRAVEEN. A</title>
+  <meta name="description" content="IoT Task 3 — Voice-activated home automation using Google Assistant, Adafruit IO MQTT, and ESP32 multi-channel relay modules.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- GLOBAL STICKY NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="protosem.html" class="nav-link">ProtoSem</a></li>
+          <li><a href="iot.html" class="nav-link active">IoT Session</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry">
+        <div class="status-dot green"></div>
+        <span>SYS.TIME <strong id="hud-clock" style="color: #fff;">18:07:22</strong></span>
+        <span style="color: var(--accent-red-bright); margin-left: 6px;">[ONLINE]</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN TASK DETAIL -->
+  <main>
+    <div class="task-detail-container">
+      
+      <div class="task-nav-bar">
+        <a href="iot.html" class="back-link">
+          <span>&larr;</span> Back to IoT Session Hub
+        </a>
+        <div style="display: flex; gap: 12px;">
+          <a href="iot-task2.html" class="btn btn-secondary btn-sm">&larr; Prev Task</a>
+          <span class="iot-badge">TASK 03 / 05</span>
+          <a href="iot-task4.html" class="btn btn-secondary btn-sm">Next Task &rarr;</a>
+        </div>
+      </div>
+
+      <div class="section-tag">
+        <span>VOICE AUTOMATION &amp; CLOUD PIPELINES</span>
+      </div>
+      <h1 class="section-title" style="text-align: left; margin-bottom: 12px;">
+        Task 3: Voice Control &amp; Relays
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 30px;">
+        Task 3 introduces voice-controlled natural language interfaces into our automation workflow. By mapping Google Assistant voice intents through cloud webhook bridges to Adafruit IO MQTT feeds, the ESP32 dynamically switches multi-channel relay outputs with sub-second response times.
+      </p>
+
+      <!-- Hardware Pinout & Voice Flow -->
+      <div class="glass-card" style="padding: 24px; margin-bottom: 32px;">
+        <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 16px;">
+          Voice Automation Signal Flow
+        </h3>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 16px;">
+          <strong>Voice Trigger &rarr; Natural Language Understanding (Google Assistant) &rarr; Webhook Trigger &rarr; Adafruit IO Feed (/feeds/bulb) &rarr; ESP32 MQTT Client &rarr; Relay Coil Energized &rarr; 230V AC Load ON</strong>
+        </p>
+
+        <table class="pinout-table">
+          <thead>
+            <tr>
+              <th>Relay Channel</th>
+              <th>ESP32 GPIO</th>
+              <th>Trigger Logic</th>
+              <th>Voice Command Equivalent</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Channel 1 (Bulb Load)</td>
+              <td>GPIO 23</td>
+              <td>Active LOW (Optocoupler)</td>
+              <td>&ldquo;Hey Google, turn on industrial light&rdquo;</td>
+            </tr>
+            <tr>
+              <td>Channel 2 (Aux Relay)</td>
+              <td>GPIO 22</td>
+              <td>Active LOW (Optocoupler)</td>
+              <td>&ldquo;Hey Google, switch auxiliary device&rdquo;</td>
+            </tr>
+            <tr>
+              <td>Status Indicator</td>
+              <td>GPIO 2</td>
+              <td>Active HIGH</td>
+              <td>Synchronized cloud heartbeat indicator</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Demonstration Video & Multiple Photos -->
+      <div class="glass-card" style="padding: 28px; margin-bottom: 32px;">
+        <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 16px;">
+          Demonstration Video &amp; Test Bench Photos
+        </h3>
+        
+        <div class="media-gallery-grid">
+          <!-- Video -->
+          <div class="media-card" style="grid-column: span 1;">
+            <video controls preload="metadata">
+              <source src="praveen%20task%20photo/task%203.mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="media-caption">
+              🎥 Video: Voice Assistant Actuating Relays
+            </div>
+          </div>
+
+          <!-- Photo 1 -->
+          <div class="media-card">
+            <img src="praveen%20task%20photo/task%203%20().jpeg" alt="Voice control circuit setup 1">
+            <div class="media-caption">
+              📸 Photo: Complete Voice Relay Breadboard Setup
+            </div>
+          </div>
+
+          <!-- Photo 2 -->
+          <div class="media-card">
+            <img src="praveen%20task%20photo/task%203%20...jpeg" alt="Voice control circuit setup 2">
+            <div class="media-caption">
+              📸 Photo: Wiring Harness &amp; Optoisolated Relay Module
+            </div>
+          </div>
+
+          <!-- Photo 3 -->
+          <div class="media-card">
+            <img src="praveen%20task%20photo/task%203%20....jpeg" alt="Voice control circuit setup 3">
+            <div class="media-caption">
+              📸 Photo: Relay Channel Switching 230V AC Socket
+            </div>
+          </div>
+
+          <!-- Photo 4 -->
+          <div class="media-card">
+            <img src="praveen%20task%20photo/task%203%20......jpeg" alt="Voice control circuit setup 4">
+            <div class="media-caption">
+              📸 Photo: ESP32 WiFi Signal Verification
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arduino C++ Source Code -->
+      <div class="glass-card" style="padding: 28px;">
+        <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 8px;">
+          Arduino C++ Source Code (Voice Pipeline Subscriber)
+        </h3>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 16px;">
+          Optimized firmware processing MQTT string payloads triggered by voice commands.
+        </p>
+
+        <div class="code-block-wrap">
+          <div class="code-header">
+            <span>ESP32_Voice_Control_DualRelay.ino</span>
+            <button class="copy-btn">Copy Code</button>
+          </div>
+          <pre><code>/*
+ * =====================================================================
+ * Task 3: Voice Control & Relays via Adafruit IO MQTT
+ * Developer: PRAVEEN. A
+ * Board: ESP32 DevKit V1
+ * Voice Engine: Google Assistant via Adafruit IO Cloud Feeds
+ * =====================================================================
+ */
+
+#include &lt;WiFi.h&gt;
+#include "Adafruit_MQTT.h"
+#include "Adafruit_MQTT_Client.h"
+
+// ---------- WiFi Credentials ----------
+#define WIFI_SSID       "protosem"
+#define WIFI_PASSWORD   "Proto#123"
+
+// ---------- Adafruit IO Credentials ----------
+#define AIO_SERVER      "io.adafruit.com"
+#define AIO_SERVERPORT  1883
+#define AIO_USERNAME    "elaks_22"
+#define AIO_KEY         "aio_Hdzy40ALTmyX6Pqhtzw8Qg1fUMiV"
+
+// ---------- Relay Pin Assignments ----------
+#define RELAY_PIN_1     23   // Main Bulb Relay
+#define RELAY_PIN_2     22   // Aux Relay Channel
+
+WiFiClient client;
+Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO_KEY);
+
+// Adafruit IO Feed for Voice Control
+Adafruit_MQTT_Subscribe voiceBulb = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/bulb");
+
+void MQTT_connect();
+
+void setup() {
+  Serial.begin(115200);
+
+  // Initialize Relays (Active LOW: HIGH = OFF, LOW = ON)
+  pinMode(RELAY_PIN_1, OUTPUT);
+  pinMode(RELAY_PIN_2, OUTPUT);
+  digitalWrite(RELAY_PIN_1, HIGH);
+  digitalWrite(RELAY_PIN_2, HIGH);
+
+  // Connect to WiFi
+  Serial.print("Connecting to WiFi: ");
+  Serial.println(WIFI_SSID);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nWiFi Connected successfully!");
+  Serial.println(WiFi.localIP());
+
+  // Subscribe to voice control feed
+  mqtt.subscribe(&voiceBulb);
+}
+
+void loop() {
+  MQTT_connect();
+
+  Adafruit_MQTT_Subscribe *subscription;
+  while ((subscription = mqtt.readSubscription(1000))) {
+    if (subscription == &voiceBulb) {
+      String value = (char *)voiceBulb.lastread;
+      value.trim();
+      value.toUpperCase();
+
+      Serial.print("[VOICE COMMAND RECEIVED]: ");
+      Serial.println(value);
+
+      if (value == "ON" || value == "1") {
+        digitalWrite(RELAY_PIN_1, LOW); // Turn Relay ON
+        Serial.println("[ACTION] Relay 1 Energized -> Light ON");
+      }
+      else if (value == "OFF" || value == "0") {
+        digitalWrite(RELAY_PIN_1, HIGH); // Turn Relay OFF
+        Serial.println("[ACTION] Relay 1 Released -> Light OFF");
+      }
+    }
+  }
+
+  if (!mqtt.ping()) {
+    mqtt.disconnect();
+  }
+}
+
+void MQTT_connect() {
+  int8_t ret;
+  if (mqtt.connected()) return;
+
+  Serial.print("Connecting to Adafruit IO... ");
+  while ((ret = mqtt.connect()) != 0) {
+    Serial.println(mqtt.connectErrorString(ret));
+    Serial.println("Re-attempting connection in 4s...");
+    mqtt.disconnect();
+    delay(4000);
+  }
+  Serial.println("Voice MQTT Channel Ready!");
+}
+</code></pre>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-name">PRAVEEN.A</span>
+          <span class="footer-discipline">Mechatronics Engineering</span>
+        </div>
+
+        <nav aria-label="Footer Navigation">
+          <ul class="footer-nav">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="skills.html" class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="protosem.html" class="footer-link">ProtoSem</a></li>
+            <li><a href="iot.html" class="footer-link">IoT Session</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 PRAVEEN.A. All rights reserved.</span>
+        <span>ENGINEER'S COMMAND CENTER // OBSIDIAN &amp; CRIMSON EDITION</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

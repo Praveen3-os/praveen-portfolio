@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRAVEEN. A | Engineering Command Center & Portfolio</title>
+  <meta name="description" content="Personal Command Center of Praveen A — Mechatronics Engineering Student, Full Stack Developer, AI Prompt Engineer, Robotics & Industrial Automation enthusiast.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       GLOBAL STICKY NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link active" id="nav-home">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="nav-about">About</a></li>
+          <li><a href="skills.html" class="nav-link" id="nav-skills">Skills</a></li>
+          <li><a href="experience.html" class="nav-link" id="nav-experience">Experience</a></li>
+          <li><a href="protosem.html" class="nav-link" id="nav-protosem">ProtoSem</a></li>
+          <li><a href="iot.html" class="nav-link" id="nav-iot">IoT Session</a></li>
+          <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry" id="nav-telemetry">
+        <div class="status-dot green"></div>
+        <span>SYS.TIME <strong id="hud-clock" style="color: #fff;">18:07:22</strong></span>
+        <span style="color: var(--accent-red-bright); margin-left: 6px;">[ONLINE]</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION — COMMAND CENTER
+       ========================================================================== -->
+  <main>
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Left Content -->
+          <div class="hero-content">
+            <div class="command-badge">
+              <span class="status-dot"></span>
+              <span class="blinking-font">SYSTEM READY // AUTONOMOUS ENGINEERING</span>
+            </div>
+
+            <h1 class="hero-title">
+              <span class="name-highlight">PRAVEEN. A</span>
+            </h1>
+
+            <div class="hero-subtitle">
+              <span id="typewriter-text">Mechatronics Engineering Student</span><span class="blinking-cursor">_</span>
+            </div>
+
+            <p class="hero-intro">
+              &ldquo;I build intelligent systems at the intersection of mechanical engineering, electronics, automation, robotics, and software.&rdquo;
+            </p>
+
+            <!-- Technical Visual Ribbon -->
+            <div class="stack-ribbon" id="hero-stack-ribbon">
+              <span class="stack-label">STACK:</span>
+              <span class="stack-tag">WEB DEVELOPMENT</span>
+              <span class="stack-tag">REACT</span>
+              <span class="stack-tag">JAVASCRIPT</span>
+              <span class="stack-tag">PROGRAMMING</span>
+              <span class="stack-tag">ROBOTICS</span>
+              <span class="stack-tag">AI</span>
+            </div>
+
+            <div class="hero-cta">
+              <a href="experience.html" class="btn btn-primary" id="btn-explore-work">
+                <span>Explore My Work</span>
+                <span style="font-size: 1.1rem;">→</span>
+              </a>
+              <a href="contact.html" class="btn btn-secondary" id="btn-contact-hero">
+                <span>Contact Me</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Futuristic Visual: Holographic Engineering Command Center -->
+          <div class="hero-visual" id="hero-visual-center">
+            <div class="hud-command-center">
+              <div class="hud-topbar">
+                <div class="hud-node-title">
+                  <div class="status-dot"></div>
+                  <span>AI COMMAND CORE // NODE-01</span>
+                </div>
+                <span>FREQ: 2.4GHz</span>
+              </div>
+
+              <!-- Radar / Hologram Graphic -->
+              <div class="hud-radar-wrap">
+                <div class="radar-circle radar-c1"></div>
+                <div class="radar-circle radar-c2"></div>
+                <div class="radar-circle radar-c3"></div>
+                <div class="radar-crosshair-x"></div>
+                <div class="radar-crosshair-y"></div>
+                <div class="radar-sweep"></div>
+                <div class="radar-center-core">
+                  <span>AI/MC</span>
+                </div>
+              </div>
+
+              <!-- Live Telemetry Readout Grid -->
+              <div class="hud-telemetry-grid">
+                <div class="hud-item">
+                  <span class="hud-item-label">SUBSYSTEM STATUS</span>
+                  <span class="hud-item-val green">● NOMINAL</span>
+                </div>
+                <div class="hud-item">
+                  <span class="hud-item-label">CORE ARCHITECTURE</span>
+                  <span class="hud-item-val red">ESP32 / PLC / ARM</span>
+                </div>
+                <div class="hud-item">
+                  <span class="hud-item-label">SYSTEM LATENCY</span>
+                  <span class="hud-item-val">0.08 ms</span>
+                </div>
+                <div class="hud-item">
+                  <span class="hud-item-label">SECURITY PROTOCOL</span>
+                  <span class="hud-item-val green">ENCRYPTED / MQTT</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         QUICK STATS SECTION — 4 PREMIUM GLASS CARDS
+         ========================================================================== -->
+    <section class="stats-section" id="quick-stats">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">
+            <span>CORE PILLARS</span>
+          </div>
+          <h2 class="section-title">Engineering Foundations</h2>
+          <p class="section-description">
+            A cohesive integration of physical hardware, electronics, embedded firmware, and modern web &amp; AI architectures.
+          </p>
+        </div>
+
+        <div class="stats-grid">
+          
+          <!-- Card 1 -->
+          <article class="glass-card" id="stat-mechatronics">
+            <div class="card-icon-wrap">
+              <span>⚙️</span>
+            </div>
+            <h3 class="card-title">Mechatronics Engineering</h3>
+            <p class="card-desc">
+              Holistic multidisciplinary engineering combining CAD mechanical design, structural kinematics, sensory feedback systems, and electronic circuit integration.
+            </p>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="glass-card" id="stat-robotics">
+            <div class="card-icon-wrap">
+              <span>🤖</span>
+            </div>
+            <h3 class="card-title">Robotics &amp; Automation</h3>
+            <p class="card-desc">
+              Designing line-following mobile robots, kinematic actuators, closed-loop PID motion control, and intelligent robotic sequencing for autonomous operations.
+            </p>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="glass-card" id="stat-plc">
+            <div class="card-icon-wrap">
+              <span>⚡</span>
+            </div>
+            <h3 class="card-title">PLC Experience</h3>
+            <p class="card-desc">
+              Industrial ladder logic implementation, sensor interfacing, machine sequences, and relay automation for heavy-duty manufacturing and casting machinery.
+            </p>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="glass-card" id="stat-industrial">
+            <div class="card-icon-wrap">
+              <span>🔬</span>
+            </div>
+            <h3 class="card-title">Industrial Projects</h3>
+            <p class="card-desc">
+              Real-world engineering problem solving, failure mode analysis, material selection improvements (marine-grade alloys), and practical operational enhancements.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       GLOBAL FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-name">PRAVEEN.A</span>
+          <span class="footer-discipline">Mechatronics Engineering</span>
+        </div>
+
+        <nav aria-label="Footer Navigation">
+          <ul class="footer-nav">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="skills.html" class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="protosem.html" class="footer-link">ProtoSem</a></li>
+            <li><a href="iot.html" class="footer-link">IoT Session</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 PRAVEEN.A. All rights reserved.</span>
+        <span>ENGINEER'S COMMAND CENTER // OBSIDIAN &amp; CRIMSON EDITION</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

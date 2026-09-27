@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IoT Session Hub | PRAVEEN. A — Embedded Cloud Systems</title>
+  <meta name="description" content="IoT Engineering Mission Hub by Praveen A: ESP32, Adafruit IO MQTT, Voice Automation, and Firebase Cloud Telemetry tasks.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       GLOBAL STICKY NAVIGATION
+       ========================================================================== -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link" id="nav-home">Home</a></li>
+          <li><a href="about.html" class="nav-link" id="nav-about">About</a></li>
+          <li><a href="skills.html" class="nav-link" id="nav-skills">Skills</a></li>
+          <li><a href="experience.html" class="nav-link" id="nav-experience">Experience</a></li>
+          <li><a href="protosem.html" class="nav-link" id="nav-protosem">ProtoSem</a></li>
+          <li><a href="iot.html" class="nav-link active" id="nav-iot">IoT Session</a></li>
+          <li><a href="contact.html" class="nav-link" id="nav-contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry" id="nav-telemetry">
+        <div class="status-dot green"></div>
+        <span>SYS.TIME <strong id="hud-clock" style="color: #fff;">18:07:22</strong></span>
+        <span style="color: var(--accent-red-bright); margin-left: 6px;">[ONLINE]</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       IoT SESSION HUB HERO
+       ========================================================================== -->
+  <main>
+    <section style="padding: 60px 0 30px;">
+      <div class="container">
+        
+        <div class="section-header">
+          <div class="section-tag">
+            <span class="status-dot"></span>
+            <span>CONNECTED EMBEDDED SYSTEMS // TELEMETRY &amp; CLOUD</span>
+          </div>
+          <h1 class="section-title">IoT Engineering Hub</h1>
+          <p class="section-description">
+            Hands-on Internet of Things deployments: from onboard microcontrollers to MQTT cloud brokers, voice-actuated relays, and real-time Firebase telemetry.
+          </p>
+        </div>
+
+        <!-- ==========================================================================
+             5 INTERACTIVE MISSION BOXES (Directing to Task 1, 2, 3, 4, 5)
+             ========================================================================== -->
+        <div class="iot-hub-grid">
+          
+          <!-- Box 1: Task 1 -->
+          <a href="iot-task1.html" class="iot-box" id="box-task1">
+            <div class="iot-box-header">
+              <span class="iot-badge">TASK // 01</span>
+              <span class="status-dot green"></span>
+            </div>
+            <h2 class="iot-box-title">ESP32 Inbuilt LED Control</h2>
+            <p class="iot-box-desc">
+              Hardware verification, GPIO2 register mapping, Serial UART command parsing, and autonomous timing logic for the ESP32 onboard indicator LED.
+            </p>
+            <div class="iot-meta-row">
+              <span>HARDWARE: ESP32 DEVKIT</span>
+              <span class="iot-cta-link">View Task &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Box 2: Task 2 -->
+          <a href="iot-task2.html" class="iot-box" id="box-task2">
+            <div class="iot-box-header">
+              <span class="iot-badge">TASK // 02</span>
+              <span class="status-dot green"></span>
+            </div>
+            <h2 class="iot-box-title">Adafruit IO MQTT &amp; Soldered Board</h2>
+            <p class="iot-box-desc">
+              Bidirectional MQTT protocol implementation over Adafruit IO cloud feeds to switch 230V AC mains bulb using high-voltage relay logic and custom soldered PCB.
+            </p>
+            <div class="iot-meta-row">
+              <span>CLOUD: ADAFRUIT IO // MQTT</span>
+              <span class="iot-cta-link">View Task &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Box 3: Task 3 -->
+          <a href="iot-task3.html" class="iot-box" id="box-task3">
+            <div class="iot-box-header">
+              <span class="iot-badge">TASK // 03</span>
+              <span class="status-dot green"></span>
+            </div>
+            <h2 class="iot-box-title">Voice Control &amp; Multi-Relays</h2>
+            <p class="iot-box-desc">
+              Integrating Google Voice Assistant webhook pipelines with Adafruit IO and dual relay channels for hands-free industrial automation.
+            </p>
+            <div class="iot-meta-row">
+              <span>AUTOMATION: GOOGLE ASST</span>
+              <span class="iot-cta-link">View Task &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Box 4: Task 4 -->
+          <a href="iot-task4.html" class="iot-box" id="box-task4">
+            <div class="iot-box-header">
+              <span class="iot-badge">TASK // 04</span>
+              <span class="status-dot green"></span>
+            </div>
+            <h2 class="iot-box-title">Firebase Dashboard Creation</h2>
+            <p class="iot-box-desc">
+              Architecting Google Firebase Realtime Database schemas, security rules, and responsive web GUI dashboard for low-latency telemetry monitoring.
+            </p>
+            <div class="iot-meta-row">
+              <span>DATABASE: FIREBASE RTDB</span>
+              <span class="iot-cta-link">View Task &rarr;</span>
+            </div>
+          </a>
+
+          <!-- Box 5: Task 5 -->
+          <a href="iot-task5.html" class="iot-box" id="box-task5" style="grid-column: span 1;">
+            <div class="iot-box-header">
+              <span class="iot-badge">TASK // 05</span>
+              <span class="status-dot green"></span>
+            </div>
+            <h2 class="iot-box-title">Full Firebase Hardware System</h2>
+            <p class="iot-box-desc">
+              Complete hardware convergence: 230V AC Bulb, DHT11 Temperature &amp; Humidity sensor, manual tactile push button override, and bidirectional ESP32 Firebase sync.
+            </p>
+            <div class="iot-meta-row">
+              <span>INTEGRATION: SENSORS + RELAY</span>
+              <span class="iot-cta-link">View Task &rarr;</span>
+            </div>
+          </a>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       GLOBAL FOOTER
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-name">PRAVEEN.A</span>
+          <span class="footer-discipline">Mechatronics Engineering</span>
+        </div>
+
+        <nav aria-label="Footer Navigation">
+          <ul class="footer-nav">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="skills.html" class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="protosem.html" class="footer-link">ProtoSem</a></li>
+            <li><a href="iot.html" class="footer-link">IoT Session</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 PRAVEEN.A. All rights reserved.</span>
+        <span>ENGINEER'S COMMAND CENTER // OBSIDIAN &amp; CRIMSON EDITION</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
