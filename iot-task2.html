@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 2: Adafruit IO MQTT &amp; Soldered Board | PRAVEEN. A</title>
+  <meta name="description" content="IoT Task 2 — ESP32 relay actuation of a 230V AC bulb via Adafruit IO MQTT broker, custom soldered perfboard, and WiFi telemetry.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- GLOBAL STICKY NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="protosem.html" class="nav-link">ProtoSem</a></li>
+          <li><a href="iot.html" class="nav-link active">IoT Session</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry">
+        <div class="status-dot green"></div>
+        <span>SYS.TIME <strong id="hud-clock" style="color: #fff;">18:07:22</strong></span>
+        <span style="color: var(--accent-red-bright); margin-left: 6px;">[ONLINE]</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN TASK DETAIL -->
+  <main>
+    <div class="task-detail-container">
+      
+      <div class="task-nav-bar">
+        <a href="iot.html" class="back-link">
+          <span>&larr;</span> Back to IoT Session Hub
+        </a>
+        <div style="display: flex; gap: 12px;">
+          <a href="iot-task1.html" class="btn btn-secondary btn-sm">&larr; Prev Task</a>
+          <span class="iot-badge">TASK 02 / 05</span>
+          <a href="iot-task3.html" class="btn btn-secondary btn-sm">Next Task &rarr;</a>
+        </div>
+      </div>
+
+      <div class="section-tag">
+        <span>CLOUD TELEMETRY &amp; HARDWARE SOLDERING</span>
+      </div>
+      <h1 class="section-title" style="text-align: left; margin-bottom: 12px;">
+        Task 2: Adafruit IO MQTT &amp; Soldered Board
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 30px;">
+        Task 2 advances beyond local microcontroller logic to full cloud-connected industrial automation. By integrating the lightweight <strong>MQTT (Message Queuing Telemetry Transport)</strong> protocol with the <strong>Adafruit IO</strong> cloud dashboard, the ESP32 receives real-time publish/subscribe packets to switch a high-voltage <strong>230V AC mains bulb</strong> via a relay module mounted on a custom <strong>soldered prototype board</strong>.
+      </p>
+
+      <!-- Hardware Pinout & Specs Table -->
+      <div class="glass-card" style="padding: 24px; margin-bottom: 32px;">
+        <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 16px;">
+          Hardware Architecture &amp; MQTT Feed Parameters
+        </h3>
+        <table class="pinout-table">
+          <thead>
+            <tr>
+              <th>Parameter / Pin</th>
+              <th>Assignment</th>
+              <th>Protocol / Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Relay Control Pin</td>
+              <td>GPIO 5</td>
+              <td>Digital Output</td>
+              <td>Triggers optocoupler input of 230V AC Relay module</td>
+            </tr>
+            <tr>
+              <td>MQTT Broker</td>
+              <td>io.adafruit.com</td>
+              <td>TCP Port 1883</td>
+              <td>Adafruit IO cloud MQTT server broker</td>
+            </tr>
+            <tr>
+              <td>Subscription Feed</td>
+              <td>elaks_22/feeds/bulb-control</td>
+              <td>MQTT Subscribe</td>
+              <td>Receives "ON" / "1" and "OFF" / "0" string payloads</td>
+            </tr>
+            <tr>
+              <td>Prototyping Board</td>
+              <td>Custom Soldered Perfboard</td>
+              <td>Hardware</td>
+              <td>Neat wire runs, soldered headers, solid ground planes</td>
+            </tr>
+            <tr>
+              <td>Mains Load</td>
+              <td>230V AC Bulb</td>
+              <td>High Voltage</td>
+              <td>Switched via relay Common (COM) and Normally Open (NO)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Demonstration Video & Photos -->
+      <div class="glass-card" style="padding: 28px; margin-bottom: 32px;">
+        <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 16px;">
+          Hardware Execution &amp; Demonstration
+        </h3>
+        
+        <div class="media-gallery-grid">
+          <!-- Video -->
+          <div class="media-card" style="grid-column: span 1;">
+            <video controls preload="metadata">
+              <source src="task%202%20().mp4" type="video/mp4">
+              <source src="praveen%20task%20photo/task%202%20().mp4" type="video/mp4">
+              Your browser does not support HTML5 video.
+            </video>
+            <div class="media-caption">
+              🎥 Video: Adafruit IO MQTT Live Relay Switching
+            </div>
+          </div>
+
+          <!-- Photo -->
+          <div class="media-card">
+            <img src="task%202.jpeg" onerror="this.onerror=null;this.src='praveen%20task%20photo/task%202.jpeg'" alt="Soldered board and 230V bulb setup">
+            <div class="media-caption">
+              📸 Photo: Soldered Perfboard &amp; ESP32 Relay Integration
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Real Arduino C++ Source Code -->
+      <div class="glass-card" style="padding: 28px;">
+        <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 8px;">
+          Arduino C++ Source Code (Adafruit MQTT Client)
+        </h3>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 16px;">
+          Field-tested firmware using <code>WiFi.h</code> and <code>Adafruit_MQTT_Client.h</code>. Implements auto-reconnect loops and non-blocking feed polling.
+        </p>
+
+        <div class="code-block-wrap">
+          <div class="code-header">
+            <span>ESP32_Adafruit_IO_MQTT_Relay.ino</span>
+            <button class="copy-btn">Copy Code</button>
+          </div>
+          <pre><code>/*
+ * =====================================================================
+ * Task 2: ESP32 + Relay + Adafruit IO (MQTT) — 230V Bulb ON/OFF Control
+ * Developer: PRAVEEN. A
+ * Board: ESP32 DevKit V1 + Custom Soldered Perfboard
+ * Load: 230V AC Bulb via Single-Channel Relay (COM/NO)
+ * =====================================================================
+ */
+
+#include &lt;WiFi.h&gt;
+#include "Adafruit_MQTT.h"
+#include "Adafruit_MQTT_Client.h"
+
+// ---------- WiFi Credentials ----------
+#define WLAN_SSID       "protosem"
+#define WLAN_PASS       "Proto#123"
+
+// ---------- Adafruit IO Credentials ----------
+#define AIO_SERVER      "io.adafruit.com"
+#define AIO_SERVERPORT  1883
+#define AIO_USERNAME    "elaks_22"
+#define AIO_KEY         "aio_Hdzy40ALTmyX6Pqhtzw8Qg1fUMiV"
+
+// ---------- Relay Control Pin ----------
+#define RELAY_PIN 5
+
+// ---------- WiFi + MQTT Client Setup ----------
+WiFiClient client;
+Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO_KEY);
+
+// ---------- Feed Subscription Setup ----------
+Adafruit_MQTT_Subscribe bulbFeed = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "/feeds/bulb-control");
+
+void MQTT_connect();
+
+void setup() {
+  Serial.begin(115200);
+  delay(100);
+
+  // Configure relay pin
+  pinMode(RELAY_PIN, OUTPUT);
+  digitalWrite(RELAY_PIN, LOW);   // Bulb OFF initially
+
+  // Connect to Local WiFi Network
+  Serial.print("Connecting to WiFi: ");
+  Serial.println(WLAN_SSID);
+  WiFi.begin(WLAN_SSID, WLAN_PASS);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("\nWiFi connected! IP Address: ");
+  Serial.println(WiFi.localIP());
+
+  // Subscribe to Adafruit IO Feed
+  mqtt.subscribe(&bulbFeed);
+}
+
+void loop() {
+  // Ensure MQTT connection is active
+  MQTT_connect();
+
+  // Poll for incoming subscription packets (5-second timeout window)
+  Adafruit_MQTT_Subscribe *subscription;
+  while ((subscription = mqtt.readSubscription(5000))) {
+    if (subscription == &bulbFeed) {
+      String value = (char *)bulbFeed.lastread;
+      Serial.print("[MQTT INCOMING] Feed Value: ");
+      Serial.println(value);
+
+      // Actuate relay based on cloud command
+      if (value == "1" || value == "ON" || value == "on") {
+        digitalWrite(RELAY_PIN, HIGH);   // Relay ON -> Bulb ON
+        Serial.println("[ACTION] Relay Triggered -> 230V BULB ON");
+      } else if (value == "0" || value == "OFF" || value == "off") {
+        digitalWrite(RELAY_PIN, LOW);    // Relay OFF -> Bulb OFF
+        Serial.println("[ACTION] Relay Released -> 230V BULB OFF");
+      }
+    }
+  }
+
+  // Ping broker to maintain keep-alive heartbeat
+  if (!mqtt.ping()) {
+    mqtt.disconnect();
+  }
+}
+
+// Function to handle robust MQTT reconnection
+void MQTT_connect() {
+  int8_t ret;
+  if (mqtt.connected()) {
+    return;
+  }
+
+  Serial.print("Connecting to Adafruit IO MQTT... ");
+  uint8_t retries = 3;
+  while ((ret = mqtt.connect()) != 0) {
+    Serial.println(mqtt.connectErrorString(ret));
+    Serial.println("Retrying connection in 5 seconds...");
+    mqtt.disconnect();
+    delay(5000);
+    retries--;
+    if (retries == 0) {
+      Serial.println("[FATAL] MQTT Connection failed. Resetting loop.");
+      return;
+    }
+  }
+  Serial.println("Adafruit IO Connected!");
+}
+</code></pre>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-name">PRAVEEN.A</span>
+          <span class="footer-discipline">Mechatronics Engineering</span>
+        </div>
+
+        <nav aria-label="Footer Navigation">
+          <ul class="footer-nav">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="skills.html" class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="protosem.html" class="footer-link">ProtoSem</a></li>
+            <li><a href="iot.html" class="footer-link">IoT Session</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 PRAVEEN.A. All rights reserved.</span>
+        <span>ENGINEER'S COMMAND CENTER // OBSIDIAN &amp; CRIMSON EDITION</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
