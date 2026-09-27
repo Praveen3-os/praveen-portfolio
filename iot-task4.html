@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task 4: Firebase Dashboard Creation | PRAVEEN. A</title>
+  <meta name="description" content="IoT Task 4 — Designing and deploying a Google Firebase Realtime Database cloud dashboard for remote ESP32 telemetry, device monitoring, and load switching.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- GLOBAL STICKY NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="protosem.html" class="nav-link">ProtoSem</a></li>
+          <li><a href="iot.html" class="nav-link active">IoT Session</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry">
+        <div class="status-dot green"></div>
+        <span>SYS.TIME <strong id="hud-clock" style="color: #fff;">18:07:22</strong></span>
+        <span style="color: var(--accent-red-bright); margin-left: 6px;">[ONLINE]</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN TASK DETAIL -->
+  <main>
+    <div class="task-detail-container">
+      
+      <div class="task-nav-bar">
+        <a href="iot.html" class="back-link">
+          <span>&larr;</span> Back to IoT Session Hub
+        </a>
+        <div style="display: flex; gap: 12px;">
+          <a href="iot-task3.html" class="btn btn-secondary btn-sm">&larr; Prev Task</a>
+          <span class="iot-badge">TASK 04 / 05</span>
+          <a href="iot-task5.html" class="btn btn-secondary btn-sm">Next Task &rarr;</a>
+        </div>
+      </div>
+
+      <div class="section-tag">
+        <span>CLOUD ARCHITECTURE &amp; FULL STACK DASHBOARD</span>
+      </div>
+      <h1 class="section-title" style="text-align: left; margin-bottom: 12px;">
+        Task 4: Firebase Dashboard Creation
+      </h1>
+      <p style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 30px;">
+        Task 4 transitions into scalable NoSQL cloud architecture by deploying <strong>Google Firebase Realtime Database</strong>. I configured database authentication, structured real-time JSON node trees for sensor readings and actuator states, and designed a responsive web telemetry dashboard allowing instant bidirectional command dispatching.
+      </p>
+
+      <!-- Architecture & Security Rules -->
+      <div class="glass-card" style="padding: 24px; margin-bottom: 32px;">
+        <h3 style="font-size: 1.2rem; color: #fff; margin-bottom: 16px;">
+          Firebase Realtime Database Architecture
+        </h3>
+        
+        <table class="pinout-table">
+          <thead>
+            <tr>
+              <th>JSON Node</th>
+              <th>Data Type</th>
+              <th>Direction</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>/devices/bulb/status</code></td>
+              <td>Boolean (true / false)</td>
+              <td>Bidirectional</td>
+              <td>Tracks and commands 230V bulb relay state</td>
+            </tr>
+            <tr>
+              <td><code>/telemetry/temperature</code></td>
+              <td>Float (&deg;C)</td>
+              <td>ESP32 &rarr; Cloud</td>
+              <td>Live DHT11 temperature readout</td>
+            </tr>
+            <tr>
+              <td><code>/telemetry/humidity</code></td>
+              <td>Float (%)</td>
+              <td>ESP32 &rarr; Cloud</td>
+              <td>Live DHT11 relative humidity readout</td>
+            </tr>
+            <tr>
+              <td><code>/devices/button/last_press</code></td>
+              <td>Timestamp (ms)</td>
+              <td>ESP32 &rarr; Cloud</td>
+              <td>Manual physical push button override timestamp</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Real Screenshots Gallery -->
+      <div class="glass-card" style="padding: 28px; margin-bottom: 32px;">
+        <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 16px;">
+          Firebase Cloud Console &amp; Web Dashboard UI
+        </h3>
+        
+        <div class="media-gallery-grid">
+          <!-- Screenshot 1 -->
+          <div class="media-card">
+            <img src="task%204%20..png" onerror="this.onerror=null;this.src='praveen%20task%20photo/task%204%20..png'" alt="Firebase Console Realtime Database Tree">
+            <div class="media-caption">
+              📸 Screenshot 1: Firebase Realtime Database Data Tree &amp; Keys
+            </div>
+          </div>
+
+          <!-- Screenshot 2 -->
+          <div class="media-card">
+            <img src="task%204....png" onerror="this.onerror=null;this.src='praveen%20task%20photo/task%204....png'" alt="Firebase Web Application Dashboard Interface">
+            <div class="media-caption">
+              📸 Screenshot 2: Real-Time Web Telemetry Control Interface
+            </div>
+          </div>
+
+          <!-- Screenshot 3 -->
+          <div class="media-card">
+            <img src="task%204.....png" onerror="this.onerror=null;this.src='praveen%20task%20photo/task%204.....png'" alt="Firebase Device Configuration & Security Rules">
+            <div class="media-caption">
+              📸 Screenshot 3: Firebase Project Security Rules &amp; SDK Setup
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Firebase Web Client Dashboard Code -->
+      <div class="glass-card" style="padding: 28px;">
+        <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 8px;">
+          Front-End Firebase SDK Integration (JavaScript)
+        </h3>
+        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 16px;">
+          Client-side JavaScript code implementing real-time websocket synchronization with Firebase Realtime Database.
+        </p>
+
+        <div class="code-block-wrap">
+          <div class="code-header">
+            <span>firebase_dashboard_client.js</span>
+            <button class="copy-btn">Copy Code</button>
+          </div>
+          <pre><code>// =====================================================================
+// Task 4: Google Firebase Realtime Dashboard Client
+// Developer: PRAVEEN. A
+// =====================================================================
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+
+// Firebase Project Credentials
+const firebaseConfig = {
+  apiKey: "AIzaSyC_YourApiKeyHere",
+  authDomain: "praveen-iot-dashboard.firebaseapp.com",
+  databaseURL: "https://praveen-iot-dashboard-default-rtdb.firebaseio.com",
+  projectId: "praveen-iot-dashboard",
+  storageBucket: "praveen-iot-dashboard.appspot.com",
+  messagingSenderId: "1029384756",
+  appId: "1:1029384756:web:abcdef123456"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+// DOM Elements
+const bulbToggle = document.getElementById("bulb-switch");
+const tempGauge = document.getElementById("temp-reading");
+const humGauge = document.getElementById("humidity-reading");
+
+// Listen for Realtime Changes from ESP32 or Other Clients
+const bulbRef = ref(db, "devices/bulb/status");
+onValue(bulbRef, (snapshot) => {
+  const isBulbOn = snapshot.val();
+  bulbToggle.checked = isBulbOn;
+  console.log("[FIREBASE SYNC] Bulb Status updated to:", isBulbOn);
+});
+
+// Telemetry Listeners
+onValue(ref(db, "telemetry/temperature"), (snap) => {
+  tempGauge.textContent = snap.val() ? `${snap.val()} °C` : "--";
+});
+
+onValue(ref(db, "telemetry/humidity"), (snap) => {
+  humGauge.textContent = snap.val() ? `${snap.val()} %` : "--";
+});
+
+// User Toggle Switch Event
+bulbToggle.addEventListener("change", (e) => {
+  const newState = e.target.checked;
+  set(bulbRef, newState)
+    .then(() => console.log("[COMMAND TRANSMITTED] Bulb ->", newState))
+    .catch((err) => console.error("Write error:", err));
+});
+</code></pre>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-name">PRAVEEN.A</span>
+          <span class="footer-discipline">Mechatronics Engineering</span>
+        </div>
+
+        <nav aria-label="Footer Navigation">
+          <ul class="footer-nav">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="skills.html" class="footer-link">Skills</a></li>
+            <li><a href="experience.html" class="footer-link">Experience</a></li>
+            <li><a href="protosem.html" class="footer-link">ProtoSem</a></li>
+            <li><a href="iot.html" class="footer-link">IoT Session</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 PRAVEEN.A. All rights reserved.</span>
+        <span>ENGINEER'S COMMAND CENTER // OBSIDIAN &amp; CRIMSON EDITION</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
