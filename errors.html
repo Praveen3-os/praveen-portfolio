@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error Codes Reference | PRAVEEN. A — Engineering Command Center</title>
+  <meta name="description" content="Official HTTP and Site-Specific Error Codes Registry stored in SQL Database with troubleshooting protocols.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚠️</text></svg>">
+</head>
+<body>
+
+  <!-- GLOBAL NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="protosem.html" class="nav-link">ProtoSem</a></li>
+          <li><a href="iot.html" class="nav-link">IoT Session</a></li>
+          <li><a href="faqs.html" class="nav-link">FAQs</a></li>
+          <li><a href="errors.html" class="nav-link active">Error Codes</a></li>
+          <li><a href="health.html" class="nav-link">Health Check</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry" id="nav-telemetry">
+        <div class="status-dot green"></div>
+        <span>SYS.TIME <strong id="hud-clock" style="color: #fff;">18:07:22</strong></span>
+        <span style="color: var(--accent-red-bright); margin-left: 6px;">[8 CODES LOADED]</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header" style="text-align: left; margin-bottom: 25px;">
+        <div class="section-tag">
+          <span>// SQL FAULT REGISTRY // 8 REGISTERED ERROR CODES</span>
+        </div>
+        <h1 class="section-title">System Error Codes &amp; Protocols</h1>
+        <p class="section-description">
+          Standard HTTP status codes and custom site-specific diagnostics stored in the SQL database. Each code contains an architectural description, root cause analysis, and resolution instructions.
+        </p>
+      </div>
+
+      <!-- Live Error Simulator Bar -->
+      <div class="glass-card" style="padding: 20px; margin-bottom: 30px; border-color: var(--glass-border-red);">
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px;">
+          <div>
+            <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-red-bright); text-transform: uppercase;">// Live Diagnostic Simulation:</span>
+            <p style="font-size: 0.85rem; color: var(--text-dim); margin-top: 4px;">Trigger real system errors to verify custom handlers and fallback behavior.</p>
+          </div>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <a href="/non-existent-page-test-404" class="btn btn-secondary" style="padding: 8px 14px; font-size: 0.82rem;">Simulate 404 Page</a>
+            <a href="/trigger-500" class="btn btn-secondary" style="padding: 8px 14px; font-size: 0.82rem;">Simulate 500 Error</a>
+            <a href="ai-assistant.html" class="btn btn-primary" style="padding: 8px 14px; font-size: 0.82rem;">Ask AI about an Error</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error Codes Grid (populated from /api/error-codes) -->
+      <div id="error-codes-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px;">
+        <div style="color: var(--text-dim); padding: 40px; text-align: center; grid-column: 1 / -1;">
+          Loading error codes from SQL Database...
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-name">PRAVEEN.A</span>
+          <span class="footer-discipline">Mechatronics Engineering</span>
+        </div>
+        <nav aria-label="Footer Navigation">
+          <ul class="footer-nav">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="faqs.html" class="footer-link">FAQs</a></li>
+            <li><a href="errors.html" class="footer-link">Error Codes</a></li>
+            <li><a href="health.html" class="footer-link">Health Check</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PRAVEEN.A. All rights reserved.</span>
+        <span>ERROR REGISTRY &bull; 8 SQL DIAGNOSTIC CODES</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const grid = document.getElementById('error-codes-grid');
+      try {
+        const res = await fetch('/api/error-codes');
+        const json = await res.json();
+        const errors = json.data || [];
+
+        if (!errors.length) {
+          grid.innerHTML = '<div style="color:var(--text-dim);">No error codes found in SQL database.</div>';
+          return;
+        }
+
+        grid.innerHTML = errors.map(err => {
+          const isSiteSpecific = err.code === 599;
+          const badgeColor = isSiteSpecific ? 'var(--hud-amber)' : (err.code >= 500 ? 'var(--accent-red)' : 'var(--hud-blue)');
+          return `
+            <div class="glass-card" style="padding: 24px; display: flex; flex-direction: column; justify-content: space-between; border-color: ${isSiteSpecific ? 'rgba(245,158,11,0.4)' : 'var(--glass-border)'};">
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                  <span style="font-family: var(--font-display); font-size: 1.3rem; font-weight: 800; color: ${badgeColor};">
+                    HTTP ${err.code}
+                  </span>
+                  <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); background: rgba(255,255,255,0.06); padding: 3px 8px; border-radius: 4px;">
+                    ${err.category}
+                  </span>
+                </div>
+                
+                <h3 style="font-size: 1.15rem; color: #fff; margin-bottom: 8px;">${err.name}</h3>
+                <p style="font-size: 0.92rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 16px;">
+                  ${err.description}
+                </p>
+
+                <div style="background: rgba(10,8,14,0.7); border: 1px solid var(--glass-border); padding: 12px; border-radius: var(--radius-sm); margin-bottom: 12px; font-size: 0.85rem;">
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--accent-red-bright); margin-bottom: 4px;">// ROOT CAUSE:</div>
+                  <div style="color: var(--text-muted);">${err.cause}</div>
+                </div>
+
+                <div style="background: rgba(10,8,14,0.7); border: 1px solid var(--glass-border); padding: 12px; border-radius: var(--radius-sm); font-size: 0.85rem;">
+                  <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--hud-green); margin-bottom: 4px;">// RESOLUTION:</div>
+                  <div style="color: var(--text-muted);">${err.resolution}</div>
+                </div>
+              </div>
+
+              <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--glass-border); display: flex; justify-content: flex-end;">
+                <a href="ai-assistant.html" class="ai-action-btn" style="color: var(--accent-red-bright); font-size: 0.82rem; text-decoration: none;">
+                  Ask Assistant about ${err.code} &rarr;
+                </a>
+              </div>
+            </div>
+          `;
+        }).join('');
+      } catch (e) {
+        grid.innerHTML = `<div style="color:var(--accent-red);">Failed to fetch error codes: ${e.message}</div>`;
+      }
+    });
+  </script>
+  <script src="chat-widget.js"></script>
+</body>
+</html>

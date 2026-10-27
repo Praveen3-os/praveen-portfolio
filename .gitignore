@@ -10,3 +10,8 @@ package-lock.json
 # OS metadata
 .DS_Store
 Thumbs.db
+
+# Databases & Runtime Data
+data/
+*.db
+

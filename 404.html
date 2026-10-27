@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Resource Not Found | PRAVEEN. A Command Center</title>
+  <meta name="description" content="Custom 404 Error Page. Resource not found. Ask the AI assistant or return to safety.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚨</text></svg>">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- GLOBAL NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="faqs.html" class="nav-link">FAQs</a></li>
+          <li><a href="errors.html" class="nav-link">Error Codes</a></li>
+          <li><a href="health.html" class="nav-link">Health Check</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry" id="nav-telemetry">
+        <div class="status-dot red"></div>
+        <span style="color: var(--accent-red-bright);">[FAULT 404 DETECTED]</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 404 MAIN CONTENT -->
+  <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 20px;">
+    <div class="container" style="max-width: 680px; text-align: center;">
+      
+      <div class="glass-card" style="padding: 48px 36px; border-color: rgba(255, 34, 78, 0.45); box-shadow: 0 0 40px rgba(255, 34, 78, 0.2);">
+        
+        <div style="font-family: var(--font-display); font-size: 5rem; font-weight: 900; line-height: 1; color: var(--accent-red-bright); text-shadow: 0 0 25px rgba(255, 34, 78, 0.6); margin-bottom: 14px;">
+          404
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-red-bright); letter-spacing: 0.1em; margin-bottom: 18px;">
+          // TELEMETRY FAULT // RESOURCE NOT LOCATED
+        </div>
+
+        <h1 style="font-size: 1.8rem; color: #fff; margin-bottom: 14px;">
+          Endpoint Disconnected or Moved
+        </h1>
+
+        <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 30px;">
+          The requested coordinate <code id="missing-path" style="background: rgba(255,34,78,0.15); color: var(--accent-red-bright); padding: 2px 8px; border-radius: 4px; font-family: var(--font-mono);"></code> does not match any route in the command registry. You can consult the AI assistant to troubleshoot or locate alternative documentation.
+        </p>
+
+        <!-- Action Buttons -->
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="ai-assistant.html" class="btn btn-primary" id="btn-ask-assistant-404" style="padding: 12px 24px; font-size: 0.95rem;">
+            <span>✨ Ask the Assistant</span>
+          </a>
+          <a href="index.html" class="btn btn-secondary" style="padding: 12px 24px; font-size: 0.95rem;">
+            <span>Return to Home</span>
+          </a>
+          <a href="errors.html" class="btn btn-secondary" style="padding: 12px 20px; font-size: 0.95rem;">
+            <span>Error Reference</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container" style="text-align: center;">
+      <span style="font-size: 0.8rem; color: var(--text-dim);">&copy; 2026 PRAVEEN.A &bull; Custom 404 Telemetry Handler Active</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const pathEl = document.getElementById('missing-path');
+      if (pathEl) pathEl.textContent = window.location.pathname;
+
+      const askBtn = document.getElementById('btn-ask-assistant-404');
+      if (askBtn) {
+        askBtn.href = `ai-assistant.html?prompt=${encodeURIComponent(`I encountered a 404 Not Found error on path: ${window.location.pathname}. Can you explain this error and guide me?`)}`;
+      }
+    });
+  </script>
+  <script src="chat-widget.js"></script>
+</body>
+</html>

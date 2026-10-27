@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>System Health & Telemetry | PRAVEEN. A — Engineering Command Center</title>
+  <meta name="description" content="Live System Diagnostics, SQL/MongoDB Telemetry, Request Logs, and Third-Party API status with 2000ms safety timeout fallback.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💚</text></svg>">
+</head>
+<body>
+
+  <!-- GLOBAL NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="protosem.html" class="nav-link">ProtoSem</a></li>
+          <li><a href="iot.html" class="nav-link">IoT Session</a></li>
+          <li><a href="faqs.html" class="nav-link">FAQs</a></li>
+          <li><a href="errors.html" class="nav-link">Error Codes</a></li>
+          <li><a href="health.html" class="nav-link active">Health Check</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry" id="nav-telemetry">
+        <div class="status-dot green"></div>
+        <span>SYS.TIME <strong id="hud-clock" style="color: #fff;">18:07:22</strong></span>
+        <span style="color: var(--hud-green); margin-left: 6px;">[ALL SYSTEMS HEALTHY]</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header" style="text-align: left; margin-bottom: 25px;">
+        <div class="section-tag">
+          <span>// REAL-TIME SYSTEM TELEMETRY // REQUEST LOGS &amp; DIAGNOSTICS</span>
+        </div>
+        <h1 class="section-title">Telemetry &amp; Health Dashboard</h1>
+        <p class="section-description">
+          Live monitoring of Express runtime metrics, SQL database integrity, MongoDB telemetry persistence, incoming request logs, and third-party API timeout/fallback latency.
+        </p>
+      </div>
+
+      <!-- Overview Cards Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-bottom: 30px;">
+        
+        <div class="glass-card" style="padding: 22px;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase;">System Status</div>
+          <div style="font-family: var(--font-display); font-size: 1.5rem; color: var(--hud-green); font-weight: 800; margin-top: 6px;" id="stat-status">
+            HEALTHY
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Uptime: <span id="stat-uptime">Loading...</span></div>
+        </div>
+
+        <div class="glass-card" style="padding: 22px;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase;">SQL Database (node:sqlite)</div>
+          <div style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; font-weight: 700; margin-top: 6px;">
+            <span id="stat-faqs">-</span> FAQs &bull; <span id="stat-errors">-</span> Errors
+          </div>
+          <div style="font-size: 0.8rem; color: var(--accent-red-bright); margin-top: 4px;">Tickets: <span id="stat-tickets">-</span> Open in SQL</div>
+        </div>
+
+        <div class="glass-card" style="padding: 22px;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase;">MongoDB Telemetry</div>
+          <div style="font-family: var(--font-display); font-size: 1.3rem; color: var(--hud-blue); font-weight: 700; margin-top: 6px;" id="stat-mongo-status">
+            ACTIVE
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Logs: <span id="stat-mongo-logs">-</span> &bull; Feedback: <span id="stat-mongo-feedback">-</span></div>
+        </div>
+
+        <div class="glass-card" style="padding: 22px;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase;">Node Runtime &amp; Memory</div>
+          <div style="font-family: var(--font-display); font-size: 1.3rem; color: #fff; font-weight: 700; margin-top: 6px;" id="stat-node">
+            Node v24.21.0
+          </div>
+          <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Heap Used: <span id="stat-memory">-</span> MB</div>
+        </div>
+
+      </div>
+
+      <!-- Third-Party API Test Card (with 2000ms timeout & fallback) -->
+      <div class="glass-card" style="padding: 28px; margin-bottom: 30px; border-color: var(--glass-border-red);">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px; margin-bottom: 16px;">
+          <div>
+            <div class="section-tag" style="margin-bottom: 6px;">
+              <span>// THIRD-PARTY API INTEGRATION // TIMEOUT: 2000MS</span>
+            </div>
+            <h3 style="font-size: 1.3rem; color: #fff;">External Quotes API with Enforced Safety Timeout</h3>
+            <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: 4px;">
+              Calls external API via <code>AbortController</code> with a strict 2000ms timeout threshold. If the external provider lags or drops, the system seamlessly serves offline engineering quote fallbacks without failing the user.
+            </p>
+          </div>
+          <button class="btn btn-secondary" id="btn-test-thirdparty" style="padding: 8px 16px; font-size: 0.85rem;">
+            Test API Call
+          </button>
+        </div>
+
+        <div id="thirdparty-result" style="background: rgba(10,8,14,0.85); border: 1px solid var(--glass-border); padding: 18px; border-radius: var(--radius-sm);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-family: var(--font-mono); font-size: 0.75rem;">
+            <span id="tp-source" style="color: var(--text-dim);">Source: External / Fallback</span>
+            <span id="tp-latency" style="color: var(--hud-green);">Latency: - ms</span>
+          </div>
+          <blockquote id="tp-quote" style="font-size: 1.05rem; color: #fff; font-style: italic; line-height: 1.6; margin: 0 0 8px;">
+            &ldquo;Loading third-party quote...&rdquo;
+          </blockquote>
+          <div id="tp-author" style="text-align: right; color: var(--accent-red-bright); font-family: var(--font-display); font-size: 0.9rem;">
+            — Author
+          </div>
+        </div>
+      </div>
+
+      <!-- Request Logging Table -->
+      <div class="glass-card" style="padding: 28px; border-color: var(--glass-border);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h3 style="font-size: 1.25rem; color: #fff;">Live Request Logging</h3>
+            <span style="font-size: 0.8rem; color: var(--text-dim); font-family: var(--font-mono);">Ring Buffer: Last 15 HTTP requests captured by middleware</span>
+          </div>
+          <button class="btn btn-secondary" id="btn-refresh-logs" style="padding: 6px 14px; font-size: 0.8rem;">Refresh Logs</button>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem; font-family: var(--font-mono);">
+            <thead>
+              <tr style="border-bottom: 1px solid var(--glass-border); color: var(--text-dim); text-align: left;">
+                <th style="padding: 10px 12px;">TIME</th>
+                <th style="padding: 10px 12px;">METHOD</th>
+                <th style="padding: 10px 12px;">ENDPOINT</th>
+                <th style="padding: 10px 12px;">STATUS</th>
+                <th style="padding: 10px 12px;">IP</th>
+                <th style="padding: 10px 12px;">DURATION</th>
+              </tr>
+            </thead>
+            <tbody id="logs-table-body">
+              <tr>
+                <td colspan="6" style="padding: 20px; text-align: center; color: var(--text-dim);">Loading logs...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-name">PRAVEEN.A</span>
+          <span class="footer-discipline">Mechatronics Engineering</span>
+        </div>
+        <nav aria-label="Footer Navigation">
+          <ul class="footer-nav">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="faqs.html" class="footer-link">FAQs</a></li>
+            <li><a href="errors.html" class="footer-link">Error Codes</a></li>
+            <li><a href="health.html" class="footer-link">Health Check</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PRAVEEN.A. All rights reserved.</span>
+        <span>TELEMETRY &bull; REQUEST LOGGING &bull; SYSTEM HEALTH</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      async function loadHealth() {
+        try {
+          const res = await fetch('/api/health');
+          const data = await res.json();
+
+          document.getElementById('stat-status').textContent = data.status;
+          document.getElementById('stat-uptime').textContent = data.uptime;
+          document.getElementById('stat-faqs').textContent = data.databases.sql.counts.faqs;
+          document.getElementById('stat-errors').textContent = data.databases.sql.counts.errors;
+          document.getElementById('stat-tickets').textContent = data.databases.sql.counts.tickets;
+
+          const mongo = data.databases.mongodb;
+          document.getElementById('stat-mongo-status').textContent = mongo.status;
+          document.getElementById('stat-mongo-logs').textContent = mongo.totalChatLogs;
+          document.getElementById('stat-mongo-feedback').textContent = mongo.totalFeedback;
+
+          document.getElementById('stat-node').textContent = data.nodeVersion;
+          const heapMb = Math.round(data.memory.heapUsed / 1024 / 1024);
+          document.getElementById('stat-memory').textContent = heapMb;
+
+          // Render Logs
+          const tbody = document.getElementById('logs-table-body');
+          if (data.recentRequests && data.recentRequests.length) {
+            tbody.innerHTML = data.recentRequests.map(r => {
+              const statusColor = r.status >= 500 ? 'var(--accent-red)' : (r.status >= 400 ? 'var(--hud-amber)' : 'var(--hud-green)');
+              const time = r.timestamp.split('T')[1].split('.')[0];
+              return `
+                <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                  <td style="padding: 8px 12px; color: var(--text-dim);">${time}</td>
+                  <td style="padding: 8px 12px; color: #fff; font-weight: bold;">${r.method}</td>
+                  <td style="padding: 8px 12px; color: var(--text-secondary); max-width: 250px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${r.url}</td>
+                  <td style="padding: 8px 12px; color: ${statusColor}; font-weight: bold;">${r.status}</td>
+                  <td style="padding: 8px 12px; color: var(--text-dim);">${r.ip}</td>
+                  <td style="padding: 8px 12px; color: var(--hud-blue);">${r.duration}</td>
+                </tr>
+              `;
+            }).join('');
+          }
+        } catch (e) {
+          console.error('Health fetch failed:', e);
+        }
+      }
+
+      async function testThirdPartyApi() {
+        const btn = document.getElementById('btn-test-thirdparty');
+        btn.textContent = 'Testing API...';
+        btn.disabled = true;
+
+        try {
+          const res = await fetch('/api/third-party-quote');
+          const data = await res.json();
+
+          document.getElementById('tp-quote').textContent = `"${data.quote}"`;
+          document.getElementById('tp-author').textContent = `— ${data.author}`;
+          document.getElementById('tp-source').textContent = `Source: ${data.source} ${data.fallback ? '(Offline Fallback Active)' : ''}`;
+          document.getElementById('tp-latency').textContent = `Latency: ${data.latency}`;
+          document.getElementById('tp-latency').style.color = data.fallback ? 'var(--hud-amber)' : 'var(--hud-green)';
+        } catch (e) {
+          document.getElementById('tp-quote').textContent = `Quote fetch failed: ${e.message}`;
+        } finally {
+          btn.textContent = 'Test API Call';
+          btn.disabled = false;
+        }
+      }
+
+      document.getElementById('btn-test-thirdparty').addEventListener('click', testThirdPartyApi);
+      document.getElementById('btn-refresh-logs').addEventListener('click', loadHealth);
+
+      loadHealth();
+      testThirdPartyApi();
+      setInterval(loadHealth, 6000); // Polling every 6s
+    });
+  </script>
+  <script src="chat-widget.js"></script>
+</body>
+</html>

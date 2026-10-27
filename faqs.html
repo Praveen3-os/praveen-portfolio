@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Knowledge Base & FAQs | PRAVEEN. A — Engineering Command Center</title>
+  <meta name="description" content="Frequently Asked Questions stored in SQL Database covering Praveen's Mechatronics, ProtoSem, IoT Sessions, and Technical Support.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>">
+</head>
+<body>
+
+  <!-- GLOBAL NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="skills.html" class="nav-link">Skills</a></li>
+          <li><a href="experience.html" class="nav-link">Experience</a></li>
+          <li><a href="protosem.html" class="nav-link">ProtoSem</a></li>
+          <li><a href="iot.html" class="nav-link">IoT Session</a></li>
+          <li><a href="faqs.html" class="nav-link active">FAQs</a></li>
+          <li><a href="errors.html" class="nav-link">Error Codes</a></li>
+          <li><a href="health.html" class="nav-link">Health Check</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry" id="nav-telemetry">
+        <div class="status-dot green"></div>
+        <span>SYS.TIME <strong id="hud-clock" style="color: #fff;">18:07:22</strong></span>
+        <span style="color: var(--accent-red-bright); margin-left: 6px;">[SQL ONLINE]</span>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="container">
+      
+      <!-- Section Header -->
+      <div class="section-header" style="text-align: left; margin-bottom: 25px;">
+        <div class="section-tag">
+          <span>// RELATIONAL SQL KNOWLEDGE BASE // 10+ VERIFIED FAQs</span>
+        </div>
+        <h1 class="section-title">Frequently Asked Questions</h1>
+        <p class="section-description">
+          All questions and answers below are dynamically retrieved from the native SQL database (<code style="color:var(--accent-red-bright);">portfolio.db</code>). Use the search bar or category filters to find answers quickly.
+        </p>
+      </div>
+
+      <!-- Search & Category Filter Toolbar -->
+      <div class="glass-card" style="padding: 20px; margin-bottom: 30px; border-color: var(--glass-border-red);">
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; align-items: center;">
+          <div style="flex: 1; min-width: 260px;">
+            <input 
+              type="text" 
+              id="faq-search" 
+              placeholder="Search SQL database by keyword (e.g. IoT, ProtoSem, Gemini, Stack)..." 
+              style="width: 100%; padding: 12px 16px; background: rgba(10, 8, 14, 0.9); border: 1px solid var(--glass-border); border-radius: var(--radius-sm); color: #fff; font-family: var(--font-body); font-size: 0.95rem; outline: none;"
+            >
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="faq-categories">
+            <button class="ai-preset-chip active-cat" data-category="All" style="background: var(--accent-red); color: #fff;">All (12)</button>
+            <button class="ai-preset-chip" data-category="Profile & Background">Profile</button>
+            <button class="ai-preset-chip" data-category="IoT Sessions">IoT Tasks</button>
+            <button class="ai-preset-chip" data-category="ProtoSem Fellowship">ProtoSem</button>
+            <button class="ai-preset-chip" data-category="Technical Stack">Tech Stack</button>
+            <button class="ai-preset-chip" data-category="AI Assistant">AI Assistant</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQs Accordion List Container -->
+      <div id="faq-list-container" style="display: flex; flex-direction: column; gap: 16px;">
+        <!-- Populated via JavaScript from /api/faqs -->
+        <div style="text-align: center; padding: 40px; color: var(--text-dim);">
+          Loading verified FAQs from SQL Database...
+        </div>
+      </div>
+
+      <!-- Support Ticket Banner -->
+      <div class="glass-card" style="margin-top: 40px; padding: 28px; border-color: var(--glass-border-red); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <h3 style="font-size: 1.25rem; color: #fff; margin-bottom: 6px;">Didn't find what you were looking for?</h3>
+          <p style="font-size: 0.95rem; color: var(--text-muted); margin: 0;">
+            Ask the AI Assistant or file a support ticket directly into our SQL database.
+          </p>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <a href="ai-assistant.html" class="btn btn-primary" style="padding: 10px 20px;">Ask the Assistant</a>
+          <a href="contact.html" class="btn btn-secondary" style="padding: 10px 20px;">Create Support Ticket</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="footer-name">PRAVEEN.A</span>
+          <span class="footer-discipline">Mechatronics Engineering</span>
+        </div>
+        <nav aria-label="Footer Navigation">
+          <ul class="footer-nav">
+            <li><a href="index.html" class="footer-link">Home</a></li>
+            <li><a href="about.html" class="footer-link">About</a></li>
+            <li><a href="faqs.html" class="footer-link">FAQs</a></li>
+            <li><a href="errors.html" class="footer-link">Error Codes</a></li>
+            <li><a href="health.html" class="footer-link">Health Check</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 PRAVEEN.A. All rights reserved.</span>
+        <span>SQL DATABASE &bull; 10+ FAQ REPOSITORY</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('faq-list-container');
+      const searchInput = document.getElementById('faq-search');
+      const categoryBtns = document.querySelectorAll('#faq-categories button');
+      let currentCategory = 'All';
+
+      async function loadFaqs() {
+        const query = searchInput.value.trim();
+        const url = `/api/faqs?search=${encodeURIComponent(query)}&category=${encodeURIComponent(currentCategory)}`;
+        try {
+          const res = await fetch(url);
+          const data = await res.json();
+          renderFaqs(data.data || []);
+        } catch (err) {
+          container.innerHTML = `<div style="color:var(--accent-red); padding:20px;">Error loading FAQs: ${err.message}</div>`;
+        }
+      }
+
+      function renderFaqs(faqs) {
+        if (!faqs.length) {
+          container.innerHTML = `
+            <div class="glass-card" style="padding: 30px; text-align: center; color: var(--text-dim);">
+              No FAQs matched your query in the SQL database. Try another search or ask the AI assistant.
+            </div>`;
+          return;
+        }
+
+        container.innerHTML = faqs.map((faq, idx) => `
+          <div class="glass-card faq-card" style="padding: 20px 24px; cursor: pointer; transition: all 0.2s;" data-faq-id="${faq.id}">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 14px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <span style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent-red-bright); background: rgba(255,34,78,0.12); padding: 3px 8px; border-radius: 4px;">#SQL-${faq.id}</span>
+                <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase;">[${faq.category}]</span>
+              </div>
+              <span class="faq-icon" style="font-size: 1.2rem; color: var(--accent-red-bright); transition: transform 0.2s;">+</span>
+            </div>
+            <h3 style="font-size: 1.1rem; color: #fff; margin: 10px 0 0; line-height: 1.4;">${faq.question}</h3>
+            <div class="faq-answer" style="display: none; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--glass-border); color: var(--text-secondary); line-height: 1.7; font-size: 0.98rem;">
+              ${faq.answer}
+              <div style="margin-top: 12px; font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-dim);">
+                Keywords: <em>${faq.keywords || 'general'}</em>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+        // Accordion toggle click handlers
+        document.querySelectorAll('.faq-card').forEach(card => {
+          card.addEventListener('click', () => {
+            const answer = card.querySelector('.faq-answer');
+            const icon = card.querySelector('.faq-icon');
+            const isVisible = answer.style.display === 'block';
+            answer.style.display = isVisible ? 'none' : 'block';
+            icon.textContent = isVisible ? '+' : '−';
+            card.style.borderColor = isVisible ? '' : 'var(--accent-red)';
+          });
+        });
+      }
+
+      // Live search input
+      let debounceTimer;
+      searchInput.addEventListener('input', () => {
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(loadFaqs, 250);
+      });
+
+      // Category filters
+      categoryBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          categoryBtns.forEach(b => {
+            b.style.background = '';
+            b.style.color = '';
+          });
+          btn.style.background = 'var(--accent-red)';
+          btn.style.color = '#fff';
+          currentCategory = btn.getAttribute('data-category');
+          loadFaqs();
+        });
+      });
+
+      loadFaqs();
+    });
+  </script>
+  <script src="chat-widget.js"></script>
+</body>
+</html>

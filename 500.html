@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>500 — Internal Server Error | PRAVEEN. A Command Center</title>
+  <meta name="description" content="Custom 500 Error Page. Internal server fault detected. Ask the AI assistant or check system health.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💥</text></svg>">
+</head>
+<body style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- GLOBAL NAVIGATION -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" id="brand-logo">
+        <div class="brand-symbol">P</div>
+        <div class="brand-text">
+          <span class="brand-name">PRAVEEN. A</span>
+          <span class="brand-tag">COMMAND CENTER // MECHATRONICS</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="faqs.html" class="nav-link">FAQs</a></li>
+          <li><a href="errors.html" class="nav-link">Error Codes</a></li>
+          <li><a href="health.html" class="nav-link">Health Check</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="hud-telemetry" id="nav-telemetry">
+        <div class="status-dot red"></div>
+        <span style="color: var(--accent-red-bright);">[FAULT 500 LOGGED]</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- 500 MAIN CONTENT -->
+  <main style="flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 20px;">
+    <div class="container" style="max-width: 680px; text-align: center;">
+      
+      <div class="glass-card" style="padding: 48px 36px; border-color: rgba(255, 34, 78, 0.45); box-shadow: 0 0 40px rgba(255, 34, 78, 0.25);">
+        
+        <div style="font-family: var(--font-display); font-size: 5rem; font-weight: 900; line-height: 1; color: var(--accent-red); text-shadow: 0 0 25px rgba(255, 34, 78, 0.6); margin-bottom: 14px;">
+          500
+        </div>
+
+        <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--accent-red-bright); letter-spacing: 0.1em; margin-bottom: 18px;">
+          // SYSTEM EXCEPTION // INTERNAL SERVER FAULT
+        </div>
+
+        <h1 style="font-size: 1.8rem; color: #fff; margin-bottom: 14px;">
+          Command Core Exception Detected
+        </h1>
+
+        <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.65; margin-bottom: 30px;">
+          The server encountered an unhandled execution state. The incident details and stack trace have been securely recorded in the request logs. Use the AI Assistant to diagnose the failure or file an automated support ticket in the SQL database.
+        </p>
+
+        <!-- Action Buttons -->
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="ai-assistant.html" class="btn btn-primary" id="btn-ask-assistant-500" style="padding: 12px 24px; font-size: 0.95rem;">
+            <span>✨ Ask the Assistant</span>
+          </a>
+          <a href="health.html" class="btn btn-secondary" style="padding: 12px 24px; font-size: 0.95rem;">
+            <span>Check Telemetry Health</span>
+          </a>
+          <a href="index.html" class="btn btn-secondary" style="padding: 12px 20px; font-size: 0.95rem;">
+            <span>Return to Home</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- GLOBAL FOOTER -->
+  <footer class="site-footer">
+    <div class="container" style="text-align: center;">
+      <span style="font-size: 0.8rem; color: var(--text-dim);">&copy; 2026 PRAVEEN.A &bull; Custom 500 Server Exception Handler</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const askBtn = document.getElementById('btn-ask-assistant-500');
+      if (askBtn) {
+        askBtn.href = `ai-assistant.html?prompt=${encodeURIComponent('I triggered a 500 Internal Server Error. Can you explain what causes a 500 code and file a support ticket for this issue?')}`;
+      }
+    });
+  </script>
+  <script src="chat-widget.js"></script>
+</body>
+</html>
