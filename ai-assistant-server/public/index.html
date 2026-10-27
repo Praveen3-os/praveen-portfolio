@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini Lumina — Intelligent AI Assistant</title>
+  <meta name="description" content="Ask whatever questions you have with Gemini Lumina, a powerful next-generation AI assistant powered by Google Gemini API with streaming responses, multimodal support, and voice interaction.">
+  <meta name="keywords" content="gemini, ai assistant, google ai, chatgpt alternative, ai chat, multimodal ai">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Markdown & Syntax Highlighting -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- App Layout Container -->
+  <div class="app-layout" id="appLayout">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" aria-label="Chat navigation">
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-sparkle-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="url(#sparkle-grad)" stroke="none"/>
+              <defs>
+                <linearGradient id="sparkle-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#38bdf8"/>
+                  <stop offset="0.5" stop-color="#818cf8"/>
+                  <stop offset="1" stop-color="#c084fc"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Lumina AI</span>
+            <span class="brand-badge">Gemini 2.0</span>
+          </div>
+        </div>
+        <button class="icon-btn close-sidebar-btn" id="closeSidebarBtn" title="Close sidebar" aria-label="Close sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="sidebar-action-wrap">
+        <button class="new-chat-btn" id="newChatBtn" id="btn-new-chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>New Conversation</span>
+          <span class="shortcut-pill">⌘K</span>
+        </button>
+      </div>
+
+      <!-- Chat History List -->
+      <div class="chat-history-container" id="chatHistoryContainer">
+        <div class="history-section-title">Conversations</div>
+        <div class="history-list" id="historyList">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Sidebar Footer -->
+      <div class="sidebar-footer">
+        <div class="key-status-card" id="keyStatusCard">
+          <div class="key-status-indicator" id="keyStatusIndicator"></div>
+          <div class="key-status-info">
+            <span class="key-status-title" id="keyStatusTitle">Checking API...</span>
+            <span class="key-status-sub" id="keyStatusSub">Google AI Studio</span>
+          </div>
+          <button class="icon-btn small-btn" id="settingsQuickBtn" title="API Settings">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </button>
+        </div>
+
+        <div class="sidebar-controls">
+          <button class="theme-toggle-btn" id="themeToggleBtn" title="Switch Theme">
+            <svg class="sun-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="moon-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <span id="themeLabel">Dark Mode</span>
+          </button>
+          
+          <button class="shortcuts-btn" id="shortcutsBtn" title="Keyboard Shortcuts">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><line x1="6" y1="8" x2="6.01" y2="8"></line><line x1="10" y1="8" x2="10.01" y2="8"></line><line x1="14" y1="8" x2="14.01" y2="8"></line><line x1="18" y1="8" x2="18.01" y2="8"></line><line x1="6" y1="12" x2="6.01" y2="12"></line><line x1="18" y1="12" x2="18.01" y2="12"></line><line x1="10" y1="16" x2="14" y2="16"></line></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content" id="mainContent">
+      
+      <!-- Top Navigation Header -->
+      <header class="top-nav" id="topNav">
+        <div class="nav-left">
+          <button class="icon-btn toggle-sidebar-btn" id="toggleSidebarBtn" title="Toggle Sidebar" aria-label="Toggle Sidebar">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          
+          <div class="conversation-title-wrap">
+            <span class="conversation-title" id="conversationTitle">New Conversation</span>
+            <button class="rename-title-btn" id="renameTitleBtn" title="Rename conversation">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="nav-center">
+          <div class="model-selector-pill" id="modelSelectorPill" title="Select Gemini Model">
+            <span class="active-dot"></span>
+            <span class="active-model-name" id="activeModelName">Gemini 2.0 Flash</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+
+        <div class="nav-right">
+          <!-- Speech synthesis toggle -->
+          <button class="icon-btn tts-toggle-btn" id="ttsToggleBtn" title="Auto Read Answers Aloud (Off)" data-active="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>
+          </button>
+
+          <!-- Export chat -->
+          <button class="icon-btn" id="exportChatBtn" title="Export conversation as Markdown">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </button>
+
+          <!-- Clear chat -->
+          <button class="icon-btn" id="clearChatBtn" title="Clear current messages">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+          </button>
+
+          <!-- Settings Button -->
+          <button class="icon-btn highlight-btn" id="openSettingsBtn" title="Configure API Key & Preferences">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Chat Scroll Container -->
+      <div class="chat-container" id="chatContainer">
+        
+        <!-- Welcome Screen (Visible when no messages in active chat) -->
+        <section class="welcome-screen" id="welcomeScreen">
+          <div class="hero-sparkle-orb">
+            <div class="orb-glow"></div>
+            <div class="orb-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" fill="url(#hero-grad)" stroke="none"/>
+                <defs>
+                  <linearGradient id="hero-grad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#38bdf8"/>
+                    <stop offset="0.5" stop-color="#818cf8"/>
+                    <stop offset="1" stop-color="#ec4899"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+
+          <h1 class="welcome-title">How can I assist you today?</h1>
+          <p class="welcome-subtitle">Ask me anything — coding architecture, scientific explanations, creative brainstorming, document analysis, or complex problem solving.</p>
+
+          <!-- API Alert banner if key is needed -->
+          <div class="api-notice-banner" id="apiNoticeBanner">
+            <div class="notice-icon">🔑</div>
+            <div class="notice-content">
+              <strong>Gemini API Key Required</strong>
+              <span>Enter your Google AI Studio API key to start asking questions. It takes 10 seconds and is free.</span>
+            </div>
+            <button class="primary-pill-btn" id="bannerSetupKeyBtn">Set Up Key</button>
+          </div>
+
+          <!-- Persona selector pills on welcome screen -->
+          <div class="persona-row">
+            <span class="persona-label">Persona:</span>
+            <div class="persona-chips" id="personaChips">
+              <button class="persona-chip active" data-persona="general">✨ General Assistant</button>
+              <button class="persona-chip" data-persona="coding">💻 Code Architect</button>
+              <button class="persona-chip" data-persona="concise">⚡ Quick & Concise</button>
+              <button class="persona-chip" data-persona="creative">🎨 Creative Writer</button>
+              <button class="persona-chip" data-persona="academic">🔬 Science & Logic</button>
+            </div>
+          </div>
+
+          <!-- Suggested Prompt Cards -->
+          <div class="prompt-starters-grid">
+            <button class="starter-card" data-prompt="Explain quantum computing principles, superposition, and qubits in simple, intuitive terms with real-world analogies.">
+              <div class="starter-icon code-theme">🔬</div>
+              <div class="starter-text">
+                <span class="starter-title">Explain Quantum Computing</span>
+                <span class="starter-desc">Superposition & qubits in intuitive analogies</span>
+              </div>
+            </button>
+
+            <button class="starter-card" data-prompt="Write a clean, production-ready TypeScript function that implements an LRU (Least Recently Used) cache with O(1) get and put operations.">
+              <div class="starter-icon dev-theme">⚡</div>
+              <div class="starter-text">
+                <span class="starter-title">Implement an LRU Cache</span>
+                <span class="starter-desc">Clean TypeScript with O(1) get & put logic</span>
+              </div>
+            </button>
+
+            <button class="starter-card" data-prompt="Design a full database schema and microservices architecture for a high-traffic collaborative document editor like Notion.">
+              <div class="starter-icon arch-theme">🏛️</div>
+              <div class="starter-text">
+                <span class="starter-title">System Design Architecture</span>
+                <span class="starter-desc">Microservices & real-time sync schema</span>
+              </div>
+            </button>
+
+            <button class="starter-card" data-prompt="Give me 5 unconventional, high-ROI marketing strategies for launching a developer-first SaaS product.">
+              <div class="starter-icon biz-theme">🚀</div>
+              <div class="starter-text">
+                <span class="starter-title">Growth & Launch Strategy</span>
+                <span class="starter-desc">Unconventional tactics for dev-focused SaaS</span>
+              </div>
+            </button>
+          </div>
+        </section>
+
+        <!-- Message List Container -->
+        <div class="messages-list" id="messagesList" aria-live="polite">
+          <!-- Dynamic message bubbles will appear here -->
+        </div>
+
+        <!-- Scroll to bottom button -->
+        <button class="scroll-bottom-btn" id="scrollBottomBtn" title="Scroll to latest message">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+
+      </div>
+
+      <!-- Input Dock Section -->
+      <footer class="input-dock" id="inputDock">
+        <div class="input-wrapper">
+          
+          <!-- Image Attachment Preview Card -->
+          <div class="image-preview-bar" id="imagePreviewBar" style="display: none;">
+            <div class="preview-thumbnail-wrap">
+              <img id="previewImage" src="" alt="Attached image preview">
+              <button class="remove-image-btn" id="removeImageBtn" title="Remove attachment">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
+            </div>
+            <div class="preview-details">
+              <span class="preview-filename" id="previewFilename">image.png</span>
+              <span class="preview-filesize" id="previewFilesize">Multimodal image attached</span>
+            </div>
+          </div>
+
+          <!-- Main Input Field & Actions -->
+          <div class="input-box-container">
+            <button class="tool-btn attach-btn" id="attachBtn" title="Attach Image for Multimodal Question" aria-label="Attach Image">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+              <input type="file" id="fileInput" accept="image/png, image/jpeg, image/webp, image/gif" style="display: none;">
+            </button>
+
+            <textarea 
+              id="messageInput" 
+              class="message-textarea" 
+              placeholder="Ask anything... (Press Enter to send, Shift+Enter for new line)"
+              rows="1"
+              autofocus
+            ></textarea>
+
+            <div class="input-actions-right">
+              <!-- Speech-to-text mic -->
+              <button class="tool-btn voice-btn" id="voiceBtn" title="Speak your question (Voice Input)" aria-label="Voice input">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                <span class="pulse-ring"></span>
+              </button>
+
+              <!-- Stop streaming button (visible when generating) -->
+              <button class="stop-btn" id="stopBtn" style="display: none;" title="Stop Generating">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="4" width="16" height="16" rx="2"></rect></svg>
+                <span>Stop</span>
+              </button>
+
+              <!-- Send Button -->
+              <button class="send-btn" id="sendBtn" title="Send message (Enter)" aria-label="Send message">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="input-footer-info">
+            <span class="model-hint"><span class="gemini-tag">Google Gemini</span> models can analyze text, code, math, and images.</span>
+            <span class="token-counter" id="charCount">0 characters</span>
+          </div>
+        </div>
+      </footer>
+
+    </main>
+  </div>
+
+  <!-- Settings & API Key Modal -->
+  <div class="modal-backdrop" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="modal-icon-badge">⚙️</div>
+          <h2 class="modal-title" id="settingsModalTitle">Assistant Settings & API Key</h2>
+        </div>
+        <button class="icon-btn modal-close-btn" id="closeSettingsBtn" aria-label="Close settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        
+        <!-- API Key Configuration Section -->
+        <div class="form-group">
+          <div class="label-with-link">
+            <label for="apiKeyInput">Google Gemini API Key</label>
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="link-external">
+              Get free key from AI Studio
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </div>
+          
+          <div class="input-password-wrap">
+            <input 
+              type="password" 
+              id="apiKeyInput" 
+              class="form-input" 
+              placeholder="AIzaSy..." 
+              autocomplete="off"
+              spellcheck="false"
+            >
+            <button class="toggle-password-btn" id="toggleKeyVisibilityBtn" type="button" title="Show/Hide Key">
+              <svg class="eye-show" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+              <svg class="eye-hide" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none;"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path><line x1="1" y1="1" x2="23" y2="23"></line></svg>
+            </button>
+          </div>
+
+          <div class="key-actions-row">
+            <button class="secondary-btn" id="testKeyBtn" type="button">
+              <span class="btn-spinner" style="display: none;"></span>
+              <span>Test Connection</span>
+            </button>
+            <button class="secondary-btn danger" id="clearKeyBtn" type="button">Remove Key</button>
+          </div>
+          
+          <div class="verification-status" id="verificationStatus" style="display: none;"></div>
+
+          <p class="form-hint">
+            Your key is saved locally in your browser (or can be configured in <code>.env</code> on the server). It is never sent anywhere except directly to Google's official Gemini endpoint.
+          </p>
+        </div>
+
+        <!-- Model Selection Section -->
+        <div class="form-group">
+          <label for="modelSelect">Gemini Model</label>
+          <select id="modelSelect" class="form-select">
+            <option value="gemini-2.0-flash">Gemini 2.0 Flash (Recommended — Super Fast & Multimodal)</option>
+            <option value="gemini-1.5-flash">Gemini 1.5 Flash (Lightweight, High Throughput)</option>
+            <option value="gemini-1.5-pro">Gemini 1.5 Pro (Deep Complex Reasoning & Logic)</option>
+          </select>
+        </div>
+
+        <!-- Temperature Slider -->
+        <div class="form-group">
+          <div class="slider-header">
+            <label for="temperatureSlider">Creativity / Temperature</label>
+            <span class="slider-value-badge" id="tempValueBadge">0.7</span>
+          </div>
+          <input type="range" id="temperatureSlider" min="0" max="1" step="0.05" value="0.7" class="form-slider">
+          <div class="slider-labels">
+            <span>0.0 (Precise & Factual)</span>
+            <span>0.7 (Balanced)</span>
+            <span>1.0 (Creative & Playful)</span>
+          </div>
+        </div>
+
+        <!-- System Prompt Customization -->
+        <div class="form-group">
+          <label for="systemPromptInput">Custom System Instructions (Optional)</label>
+          <textarea 
+            id="systemPromptInput" 
+            class="form-textarea" 
+            rows="3" 
+            placeholder="e.g. You are an expert senior software engineer who writes concise, clean code with explanations..."
+          ></textarea>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="secondary-btn" id="cancelSettingsBtn">Close</button>
+        <button class="primary-btn" id="saveSettingsBtn">Save Preferences</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keyboard Shortcuts Modal -->
+  <div class="modal-backdrop" id="shortcutsModal" role="dialog" aria-modal="true" aria-labelledby="shortcutsModalTitle">
+    <div class="modal-dialog small-dialog">
+      <div class="modal-header">
+        <h2 class="modal-title" id="shortcutsModalTitle">Keyboard Shortcuts</h2>
+        <button class="icon-btn modal-close-btn" id="closeShortcutsBtn" aria-label="Close shortcuts">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="shortcut-item">
+          <span>Send Message</span>
+          <kbd>Enter</kbd>
+        </div>
+        <div class="shortcut-item">
+          <span>Add New Line in Input</span>
+          <kbd>Shift + Enter</kbd>
+        </div>
+        <div class="shortcut-item">
+          <span>Start New Conversation</span>
+          <kbd>⌘ / Ctrl + K</kbd>
+        </div>
+        <div class="shortcut-item">
+          <span>Open Settings</span>
+          <kbd>⌘ / Ctrl + ,</kbd>
+        </div>
+        <div class="shortcut-item">
+          <span>Close Modal / Stop Stream</span>
+          <kbd>Esc</kbd>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- Client Application Logic -->
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
